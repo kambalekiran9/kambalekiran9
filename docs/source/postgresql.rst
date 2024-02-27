@@ -7,8 +7,8 @@ Installtion and Configuration :
 -------------------------------
 .. _install:
 
-* **Step to Install PostgreSQL from apt-get:**
--------------------------------------------------- 
+* **A) Step to Install PostgreSQL from apt-get:**
+
    * Step 1: Update Package List:
 
     .. code-block:: bash
@@ -51,17 +51,9 @@ Installtion and Configuration :
      $ psql -U postgres -h localhost
 
 
-
-          
-
-
-
-  
-
-
 .. _install-source:
 
-* this steps for install postgresql from source code 
+* **B) this steps for install postgresql from source code**
 
 Backup and Recovery:
 ----------------------
