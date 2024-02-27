@@ -7,7 +7,7 @@ Installtion and Configuration :
 -------------------------------
 .. _install:
 
-* **A) Step to Install PostgreSQL from apt-get:**
+**A) Step to Install PostgreSQL from apt-get:**
 ----------------------------------------------------
 
 * Step 1: Update Package List:
@@ -64,7 +64,7 @@ Installtion and Configuration :
   
   .. code-block:: bash
 
-     $ wget https://ftp.postgresql.org/pub/source/v12.5/postgresql-15.2.tar.gz
+     $ wget https://ftp.postgresql.org/pub/source/v15.2/postgresql-15.2.tar.gz
      $ tar -xvf postgresql-15.2.tar.gz
      $ cd postgresql-15.2
 
