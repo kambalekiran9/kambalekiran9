@@ -10,6 +10,11 @@ Installtion and Configuration :
 ** *Step to Install PostgreSQL from apt-get:**
 
 * Step 1: Update Package List:
+
+.. code-block:: bash
+
+   $ sudo apt-get update
+
   
 
 
