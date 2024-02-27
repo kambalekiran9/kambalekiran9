@@ -7,7 +7,11 @@ Installtion and Configuration :
 -------------------------------
 .. _install:
 
-* this steps are for install postgresql from apt get 
+** *Step to Install PostgreSQL from apt-get:**
+
+* Step 1: Update Package List:
+  
+
 
 .. _install-source:
 
