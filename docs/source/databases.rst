@@ -63,29 +63,20 @@ DATABASES :
 
 * **PostgreSQL Major Features:**
 
-  * **Secure:**
-    * Employs Host-Based Access Control
-    * Provides Object-Level Permissions
-    * Supports Logging
-    * SSL
- 
-  * **Advanced:**
-
-    * Full Text Search
-    * Supports Triggers & Functions
-    * Supports Custom Procedural Languages
-    * PL/pgSQL, PL/Perl, PL/TCL, PL/PHP, ...
-    * Supports Online Backups
-    * Supports Full Recovery and Point-in-Time Recovery
- 
-  * **Available:**
-
-    * Replication Support
-    * Supports synchronous/asynchronous replication
-    * Support for High Availability
-    * Supports Disaster site build using Hot Standby option
-    * Provides flexibility for load balancing features
-    * Supports connection pooling
+  * **ACID Compliance:** Ensures data integrity and reliability.
+  * **Extensibility:** Allows custom data types, operators, and functions.
+  * **Concurrency Control (MVCC):** Supports simultaneous transactions without conflicts.
+  * **Data Types:** Offers a wide range, including numeric, string, JSON, and arrays.
+  * **Indexing:** Utilizes various techniques (B-tree, hash, GiST) for optimized query performance.
+  * **Full Text Search:** Built-in support for efficient searching of textual data.
+  * **Triggers and Stored Procedures:** Enables custom logic execution in response to events.
+  * **Foreign Keys and Constraints:** Maintains referential integrity and data consistency.
+  * **Replication:** Supports various methods for high availability and fault tolerance.
+  * **Security:** Provides user authentication, encryption, and role-based access control.
+  * **Performance Optimization:** Includes query optimization, parallel processing, and caching.
+  * **Scalability:** Scales horizontally and vertically for handling large datasets.
+  * **JSON and JSONB Support:** Native storage and querying of JSON data types.
+  * **Open Source and Community Support:** Active community with a wide range of extensions and 
 
 
 
