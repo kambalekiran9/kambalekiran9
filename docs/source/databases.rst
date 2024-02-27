@@ -110,7 +110,12 @@ DATABASES :
 
      * :ref:`Source-code-Installtion:<install-source>` 
   
-   
+
+* **Backup and Recovry:**
+
+  * PostgreSQL supports various installation options on various operating systems.
+
+    
      * :ref:`PostgreSQL-Backup :<pgbackup>`
  
 
