@@ -78,14 +78,14 @@ DATABASES :
     * Supports Online Backups
     * Supports Full Recovery and Point-in-Time Recovery
  
-* **Available:**
+  * **Available:**
 
-  * Replication Support
-  * Supports synchronous/asynchronous replication
-  * Support for High Availability
-  * Supports Disaster site build using Hot Standby option
-  * Provides flexibility for load balancing features
-  * Supports connection pooling
+    * Replication Support
+    * Supports synchronous/asynchronous replication
+    * Support for High Availability
+    * Supports Disaster site build using Hot Standby option
+    * Provides flexibility for load balancing features
+    * Supports connection pooling
 
 
 
