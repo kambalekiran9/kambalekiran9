@@ -108,10 +108,10 @@ Installtion and Configuration :
 
 
 
- .. notes::
+.. notes::
 
-    ./configure --help
-When no option specified for --prefix, PostgreSQL installs into /usr/local/pgsql/bin, /usr/local/pgsql/lib   by default
+   ./configure --help
+   When no option specified for --prefix, PostgreSQL installs into /usr/local/pgsql/bin, /usr/local/pgsql/lib   by default
 
 
 
@@ -124,13 +124,69 @@ When no option specified for --prefix, PostgreSQL installs into /usr/local/pgsql
        $ sudo chown postgres:postgres /DATA/postgres/15.2/
        $ Postgresql-12.5 $ cd 
           - Exit from directory
+
+
+6) Initialize Database:-
+
+  .. code-block:: bash
+
+     $ su - postgres
+     $ /opt/PostgreSQL/15.2/bin/initdb -D /DATA/postgres/15.2/testdb
+     $ /opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/testdb -l logfile start
+
+           With this we can start or stop cluster using :-
+     $ /opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/testdb  **start/stop**
+
+
+
+7) Setting Environment Variables:-
+
+   **Setting Environment Variables is very important for trouble free start up/shutdown of the database server**
+
+      • PATH - should point correct bin directory
+      • PGDATA - should point to correct data cluster directory
+      • PGPORT - should point correct port on which database cluster is running
+      • PGUSER – specifies the default database user name
+      • Edit .profile or .bash_profile to set the variables
+      
+
+8).bash_profile Creation - last step    
+
+      nano .bash_profile 
+    
+
+.. code-block:: bash
+        
  
-  
+    #!/bin/bash
+
+    PATH=$PATH:$HOME/bin
+    export PATH
+    export PATH=/opt/PostgreSQL/15.2/bin:$PATH
+    export PGDATA=/DATA/postgres/15.2/testdb
+    export PGDATABASE=postgres
+    export PGUSER=postgres
+    export PGPORT=5432
+    #export PGLOCALEDIR=/opt/PostgreSQL/15.2/share/locale
+    #export MANPATH=$MANPATH:/opt/PostgreSQL/15.2/share/man
 
 
+8) Exit and now run the bash profile to connect database server with hte help with postgresql client **psql**
 
 
+   .. code-block:: bash
 
+
+       $. .bash_profile
+
+
+9) Connect with database server : 
+
+
+   .. code-block:: bash
+
+
+      /home/postgres $ psql -p 5432 -U postgres -d postgres 
 
 
 
