@@ -60,7 +60,7 @@ PostgreSQL Totorial :
 
     .. image:: postgresql-logo.png
        :width: 400
-       :alt: Alternative text
+       #:alt: Alternative text
   
 
 Installtion and Configuration :
