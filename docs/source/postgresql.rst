@@ -81,9 +81,12 @@ Installtion and Configuration :
        get -y install libossp-uuid-dev uuid
 
 
-   .. warning:: 
+  
 
-       You will face configuration errors if any of the above packages missing. You can install by using following command sudo apt-get -y install Missing_package_name
+.. warning:: 
+
+       You will face configuration errors if any of the above packages missing. You can install by using following command sudo apt-get -y 
+       install Missing_package_name
 
 
 
