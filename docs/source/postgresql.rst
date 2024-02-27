@@ -8,6 +8,7 @@ Installtion and Configuration :
 .. _install:
 
 * **A) Step to Install PostgreSQL from apt-get:**
+----------------------------------------------------
 
 * Step 1: Update Package List:
 
@@ -103,6 +104,16 @@ Installtion and Configuration :
      $./configure prefix=/opt/PostgreSQL/15.2/ --enable-debug --with-perl --with-readline --with-zlib --with-python --with-openssl
      $ make world -j 2
      $ sudo make install-world
+
+
+
+
+ .. notes::
+
+    ./configure --help
+When no option specified for --prefix, PostgreSQL installs into /usr/local/pgsql/bin, /usr/local/pgsql/lib   by default
+
+
 
 
 5) Create a data directry and change owner:
