@@ -76,10 +76,26 @@ DATABASES :
   * **Performance Optimization:** Includes query optimization, parallel processing, and caching.
   * **Scalability:** Scales horizontally and vertically for handling large datasets.
   * **JSON and JSONB Support:** Native storage and querying of JSON data types.
-  * **Open Source and Community Support:** Active community with a wide range of extensions and 
+  * **Open Source and Community Support:** Active community with a wide range of extensions and plugins.
 
+PostgreSQL Installation:
+--------------------------------
 
+* **OS User & Permissions :**
 
+ * PostgreSQL runs as a daemon (Unix / Linux) or service (Windows)
+ * All PostgreSQL processes and data files must be owned by a user in the OS
+ * OS user is un-related to database user accounts
+ * For security reasons, the OS user must not be root or an administrative account
+ * During installation a postgres locked user will be created on linux and all the processes and data files owned by Postgres OS login.
+ * Windows does not have locked users; a password is required
+ * PostgreSQL binaries need to run using root OS user.
+
+* **Installation Options :**
+    
+  * PostgreSQL supports various installation options on various operating systems.
+  * One-Click installer ( apt-get installtion)
+  * Source code Installtion 
 
 
 
