@@ -55,7 +55,7 @@ A) Step to Install PostgreSQL from apt-get:
 
 .. _install-source:
 
-B)This steps for install postgresql from source code:
+B) Steps to install postgresql from source code:
 ---------------------------------------------------------------
 
   **we can download the sources for the Postgresql-15.2 from**
