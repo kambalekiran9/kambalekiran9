@@ -58,9 +58,9 @@ PostgreSQL Totorial :
 
       http://www.enterprisedb.com/download/
 
-    .. image:: postgresql-logo.png
-       :width: 400
-       #:alt: Alternative text
+  .. figure:: postgresql-logo.png
+     :scale: 50 %
+     :alt: map to buried treasure
   
 
 Installtion and Configuration :
