@@ -186,6 +186,12 @@ B) Steps to install postgresql from source code:
 
 
 
+Backup and Recovery :
+-------------------------------
+-------------------------------
 
+.. _pgbackup:
+
+    step to backup on postgresql database 
 
 
