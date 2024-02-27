@@ -78,8 +78,8 @@ DATABASES :
   * **JSON and JSONB Support:** Native storage and querying of JSON data types.
   * **Open Source and Community Support:** Active community with a wide range of extensions and plugins.
 
-PostgreSQL Installation:
---------------------------------
+* **PostgreSQL Installation:**
+
 
 * **OS User & Permissions :**
 
