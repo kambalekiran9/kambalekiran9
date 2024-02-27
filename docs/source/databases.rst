@@ -80,6 +80,15 @@ DATABASES :
 
 * **PostgreSQL Installation:**
 
+  * **Agenda:**
+
+      1. OS user & Permissions
+      2. Installation Options
+      3. Stack Builder
+      4. Installation from source code
+      5. Installatin from Apt-get
+      6. Environment Variables
+
 
 * **OS User & Permissions :**
 
