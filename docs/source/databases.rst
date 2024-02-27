@@ -95,13 +95,13 @@ PostgreSQL Installation:
     
   * PostgreSQL supports various installation options on various operating systems.
   
-  :ref:`PostgreSQL One-Click installer ( apt-get installtion):<install>` 
+  :ref:`One-Click-installer(apt-get installtion):<install>` 
   
-   * One-Click installer ( apt-get installtion)
+   * **One-Click installer(apt-get installtion)**
 
-  :ref:`PostgreSQL Source code Installtion:<install-source>` 
+  :ref:`Source-code-Installtion:<install-source>` 
   
-   * Source code Installtion 
+   * **Source code Installtion** 
 
 
 
