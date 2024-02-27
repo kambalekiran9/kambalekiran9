@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'dba-tutorial-project'
+project = 'dba-tutorial-By Kiran'
 copyright = '2024, Kiran.kambale'
 author = 'Kiran.kambale'
 release = '2.0.0'
