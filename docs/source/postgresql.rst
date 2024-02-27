@@ -58,7 +58,7 @@ Installtion and Configuration :
 
   **we can download the sources for the Postgresql-15.2 from**
     
-    1) Download tar Package:
+1) Download tar Package:
   
   .. code-block:: bash
 
@@ -66,7 +66,8 @@ Installtion and Configuration :
      $ tar -xvf postgresql-15.2.tar.gz
      $ cd postgresql-15.2
 
-    2) Then Install Essential Libraries :
+   
+2) Then Install Essential Libraries :
 
   .. code-block:: bash
 
