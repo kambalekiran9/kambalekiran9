@@ -1,20 +1,29 @@
-.. dba-tutorial-project documentation master file, created by
-   sphinx-quickstart on Tue Feb 27 11:08:26 2024.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+TutorialDBA - Support | Training | Consultant 
+==============================================
 
-Welcome to dba-tutorial-project's documentation!
-================================================
+As a PostgreSQL Database Administrator with 1+ year of experience at Shreeyansh DB Software in Pune and currently pursuing my MBA in IT Management, I'm passionate about data optimization and IT strategy.
+
+I thrive on solving database challenges and streamlining operations. My journey is just beginning, and I'm eager to grow, learn, and contribute to the world of data management .
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 10
 
+   databases
 
+.. toctree::
+   :maxdepth: 10
+   :caption: PostgreSQL
 
-Indices and tables
-==================
+   postgresql
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. toctree::
+   :maxdepth: 10
+   :caption: MongoDB
+  
+   mongodb
+
+.. toctree::
+   :maxdepth: 10
+   :caption: Oracle
+  
+   oracle
