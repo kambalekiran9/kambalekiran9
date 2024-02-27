@@ -58,7 +58,7 @@ PostgreSQL Totorial :
 
       http://www.enterprisedb.com/download/
 
-     .. figure:: postgresql-logo.png
+     .. figure:: docs/postgresql-logo.png
          :align: centre
          :scale: 100%
   
