@@ -61,6 +61,35 @@ DATABASES :
 
      .. image:: ../images/postgresql-logo.png
 
+* **PostgreSQL Major Features:**
+
+  * **Secure:**
+    * Employs Host-Based Access Control
+    * Provides Object-Level Permissions
+    * Supports Logging
+    * SSL
+ 
+  * **Advanced:**
+
+    * Full Text Search
+    * Supports Triggers & Functions
+    * Supports Custom Procedural Languages
+    * PL/pgSQL, PL/Perl, PL/TCL, PL/PHP, ...
+    * Supports Online Backups
+    * Supports Full Recovery and Point-in-Time Recovery
+ 
+* **Available:**
+
+  * Replication Support
+  * Supports synchronous/asynchronous replication
+  * Support for High Availability
+  * Supports Disaster site build using Hot Standby option
+  * Provides flexibility for load balancing features
+  * Supports connection pooling
+
+
+
+
 
 
 :ref:`MongoDB :<openmongo>`
