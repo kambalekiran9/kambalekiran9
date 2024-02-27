@@ -54,7 +54,8 @@ Installtion and Configuration :
 
 .. _install-source:
 
-* **B) this steps for install postgresql from source code:**
+* **B)This steps for install postgresql from source code:**
+---------------------------------------------------------------
 
   **we can download the sources for the Postgresql-15.2 from**
     
