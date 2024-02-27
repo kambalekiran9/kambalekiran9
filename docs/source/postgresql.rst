@@ -107,9 +107,8 @@ B) Steps to install postgresql from source code:
       $ sudo make install-world
 
 
-
    .. notes::
-
+       
       ./configure --help
        When no option specified for --prefix, PostgreSQL installs into /usr/local/pgsql/bin, /usr/local/pgsql/lib   by default
 
