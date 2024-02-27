@@ -7,7 +7,7 @@ Installtion and Configuration :
 -------------------------------
 .. _install:
 
-**A) Step to Install PostgreSQL from apt-get:**
+A) Step to Install PostgreSQL from apt-get:
 ----------------------------------------------------
 
 * Step 1: Update Package List:
@@ -55,7 +55,7 @@ Installtion and Configuration :
 
 .. _install-source:
 
-**B)This steps for install postgresql from source code:**
+B)This steps for install postgresql from source code:
 ---------------------------------------------------------------
 
   **we can download the sources for the Postgresql-15.2 from**
