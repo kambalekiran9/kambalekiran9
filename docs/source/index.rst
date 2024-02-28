@@ -1,3 +1,4 @@
+
 Tutorial-DBA - By | Kiran  
 ==============================================
 
@@ -10,11 +11,13 @@ I thrive on solving database challenges and streamlining operations. My journey 
 
    databases
 
+
 .. toctree::
    :maxdepth: 10
-   :caption: PostgreSQL
-
+   :caption: Postgresql
+   
    postgresql
+   
 
 .. toctree::
    :maxdepth: 10
@@ -22,8 +25,12 @@ I thrive on solving database challenges and streamlining operations. My journey 
   
    mongodb
 
+
 .. toctree::
    :maxdepth: 10
    :caption: Oracle
   
    oracle
+
+
+

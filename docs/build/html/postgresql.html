@@ -47,12 +47,15 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="databases.html">DATABASES :</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">PostgreSQL</span></p>
+<p class="caption" role="heading"><span class="caption-text">Postgresql</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">PostgreSQL Totorial :</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installtion-and-configuration">Installtion and Configuration :</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#backup-and-recovery">Backup and Recovery:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#replication-and-ha">Replication and HA :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installtion-and-configuration">Installtion and Configuration :</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-step-to-install-postgresql-from-apt-get">A) Step to Install PostgreSQL from apt-get:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#b-steps-to-install-postgresql-from-source-code">B) Steps to install postgresql from source code:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#backup-and-recovery">Backup and Recovery :</a></li>
 </ul>
 </li>
 </ul>
@@ -91,84 +94,167 @@
              
   <section id="postgresql-totorial">
 <span id="open"></span><h1>PostgreSQL Totorial :<a class="headerlink" href="#postgresql-totorial" title="Link to this heading"></a></h1>
-<p><strong>Introduction To PostgreSQL</strong> :</p>
-<blockquote>
-<div><p><strong>What is mean by Database Management system ?</strong></p>
-</div></blockquote>
-<ul class="simple">
-<li><p>A database is a structured collection of data. To add, access and process data stored in a computer
-database where database management system is needed and the data is stored in relational model
-therefore it’s called Relational Database Management Systems (RDBMS).</p></li>
-<li><p>There are wide variety of relational databases available in the market to serve the purpose of the business
-needs from small to high end mission critical systems.</p></li>
-</ul>
-<dl class="simple">
-<dt><strong>Commercial Databases :</strong> Oracle, Microsoft SQL Server, DB2, Informix, MySQL Enterprise Edition (Oracle),Postgres Plus Advanced Server (EnterpriseDB )</dt><dd><p><strong>Open Source Databases :</strong> PostgreSQL, MySQL, MongoDB etc</p>
-</dd>
-</dl>
-<p><strong>What is mean by Open Source Databases?</strong></p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Open source means that it’s possible for anyone to use and modify the software. Anybody can download
-the open source software from internet and use it without paying anything and if needed the source code
-can be changed as per the business needs. Here we will concentrate more on PostgreSQL</p></li>
-</ul>
-</div></blockquote>
-<p><strong>Origin Of PostgreSQL:</strong></p>
-<blockquote>
-<div><ul class="simple">
-<li><p>The world’s most advanced open source database</p></li>
-<li><p>Designed for extensibility and customization</p></li>
-<li><p>ANSI (American National Standards Institute)/ISO (International organization for Standardization) compliant
-SQL support</p></li>
-<li><p>PostgreSQL, originally called Postgres, was created at University of California, Berkeley by a prof. named
-Michael Stonebraker Actively developed for more than 20 years</p></li>
-</ul>
-</div></blockquote>
-<ul>
-<li><p><strong>Postgres (1986-1993)</strong></p>
-<blockquote>
-<div><p>Stonebraker started Postgres in 1986 as a followup project to its predecessor, Ingres, now owned by
-Computer Associates.</p>
-</div></blockquote>
-</li>
-<li><p><strong>Postgres95 (1994-1995)</strong></p>
-<p>Postgres, developed between 1986-1994, was a project meant to break new ground in database
-concepts such as exploration of “object relational” technologies. In 1995, two Ph.D. students from
-Stonebraker’s lab, Andrew Yu and Jolly Chen, replaced Postgres’ POSTQUEL query language with an
-extended subset of SQL. They renamed the system to Postgres95.</p>
-</li>
-<li><p><strong>PostgreSQL (1996-current)</strong></p>
-<blockquote>
-<div><p>With the start of its new life in the open source world, with many new features and enhancements,
-the database system took its current name: PostgreSQL. (“Postgres” is still used as an easy-to-pronounce
-nick name.)</p>
-</div></blockquote>
-</li>
-<li><p><strong>Active global support community</strong></p>
-<blockquote>
-<div><p>Support Mailing Lists
-<a class="reference external" href="http://www.Postgresql.org/community/lists/">http://www.Postgresql.org/community/lists/</a></p>
-</div></blockquote>
-</li>
-<li><p><strong>Download link for PostgreSQL:</strong></p>
-<blockquote>
-<div><blockquote>
-<div><p><a class="reference external" href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</a></p>
-<p><a class="reference external" href="http://www.enterprisedb.com/download/">http://www.enterprisedb.com/download/</a></p>
-</div></blockquote>
-<img alt="_images/postgresql-logo.png" src="_images/postgresql-logo.png" />
-</div></blockquote>
-</li>
-</ul>
 <section id="installtion-and-configuration">
 <h2>Installtion and Configuration :<a class="headerlink" href="#installtion-and-configuration" title="Link to this heading"></a></h2>
+<section id="a-step-to-install-postgresql-from-apt-get">
+<span id="install"></span><h3>A) Step to Install PostgreSQL from apt-get:<a class="headerlink" href="#a-step-to-install-postgresql-from-apt-get" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Step 1: Update Package List:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</pre></div>
+</div>
+</li>
+<li><p>Step 2: Install PostgreSQL</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>postgresql<span class="w"> </span>postgresql-contrib
+<span class="w">   </span>This<span class="w"> </span>will<span class="w"> </span>install<span class="w"> </span>the<span class="w"> </span>PostgreSQL<span class="w"> </span>database<span class="w"> </span>server<span class="w"> </span>and<span class="w"> </span>additional<span class="w"> </span>contrib<span class="w"> </span>packages.
+</pre></div>
+</div>
+</li>
+<li><p>Step 3: Start and Enable PostgreSQL Service</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postgresql
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>postgresql
+<span class="w">  </span>This<span class="w"> </span>starts<span class="w"> </span>the<span class="w"> </span>PostgreSQL<span class="w"> </span>service<span class="w"> </span>and<span class="w"> </span>enables<span class="w"> </span>it<span class="w"> </span>to<span class="w"> </span>start<span class="w"> </span>on<span class="w"> </span>boot.
+</pre></div>
+</div>
+</li>
+<li><p>Step 4: Access PostgreSQL Shell</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql
+<span class="w">  </span>This<span class="w"> </span><span class="nb">command</span><span class="w"> </span>logs<span class="w"> </span>you<span class="w"> </span>into<span class="w"> </span>the<span class="w"> </span>PostgreSQL<span class="w"> </span>interactive<span class="w"> </span>terminal<span class="w"> </span>as<span class="w"> </span>the<span class="w"> </span>default<span class="w"> </span>PostgreSQL<span class="w"> </span>user,<span class="w"> </span>postgres.
+</pre></div>
+</div>
+</li>
+<li><dl class="simple">
+<dt>Step 5: Set Password for PostgreSQL User</dt><dd><p>Inside the PostgreSQL shell, set a password for the default user (postgres):</p>
+</dd>
+</dl>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="se">\p</span>assword<span class="w"> </span>postgres
+<span class="se">\q</span>
+</pre></div>
+</div>
+</li>
+<li><p>Step 7: Test Connection</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-h<span class="w"> </span>localhost
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="b-steps-to-install-postgresql-from-source-code">
+<span id="install-source"></span><h3>B) Steps to install postgresql from source code:<a class="headerlink" href="#b-steps-to-install-postgresql-from-source-code" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>we can download the sources for the Postgresql-15.2 from</strong></p>
+</div></blockquote>
+<ol class="arabic">
+<li><p>Download tar Package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>wget<span class="w"> </span>https://ftp.postgresql.org/pub/source/v15.2/postgresql-15.2.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>postgresql-15.2.tar.gz
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>postgresql-15.2
+</pre></div>
+</div>
+</li>
+<li><p>Packages Installation from sources :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>gcc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install
+<span class="w">  </span>libreadline6-dev<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>zlib1g-dev<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>libssl-dev<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>libxml2-dev
+<span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>xml2<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>bison<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>libpng-dev<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install
+<span class="w">  </span>libpq-dev<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>python-dev-is-python3<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>flex<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>tcl-dev<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo
+<span class="w">  </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>tcl<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>libperl-dev<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>unzipjdbc<span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">  </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>libossp-uuid-dev<span class="w"> </span>uuid
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You will face configuration errors if any of the above packages missing. You can install by using following command sudo apt-get -y
+install Missing_package_name</p>
+</div>
+</li>
+<li><p>create user in root</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>adduser<span class="w"> </span>postgres<span class="w">   </span><span class="o">(</span><span class="w"> </span>Provide<span class="w"> </span>the<span class="w"> </span>passowrd<span class="w"> </span><span class="k">for</span><span class="w"> </span>postgres<span class="w"> </span>user<span class="w"> </span><span class="o">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Configure postgress before installation:-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$./configure<span class="w"> </span><span class="nv">prefix</span><span class="o">=</span>/opt/PostgreSQL/15.2/<span class="w"> </span>--enable-debug<span class="w"> </span>--with-perl<span class="w"> </span>--with-readline<span class="w"> </span>--with-zlib<span class="w"> </span>--with-python<span class="w"> </span>--with-openssl
+$<span class="w"> </span>make<span class="w"> </span>world<span class="w"> </span>-j<span class="w"> </span><span class="m">2</span>
+$<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span>install-world
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<dl class="simple">
+<dt>./configure –help</dt><dd><p>When no option specified for –prefix, PostgreSQL installs into /usr/local/pgsql/bin, /usr/local/pgsql/lib   by default</p>
+</dd>
+</dl>
+</div>
+</li>
+<li><p>Create a data directry and change owner:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/DATA/postgres/15.2/
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>postgres:postgres<span class="w"> </span>/DATA/postgres/15.2/
+$<span class="w"> </span>Postgresql-12.5<span class="w"> </span>$<span class="w"> </span><span class="nb">cd</span>
+<span class="w">   </span>-<span class="w"> </span>Exit<span class="w"> </span>from<span class="w"> </span>directory
+</pre></div>
+</div>
+</li>
+<li><p>Initialize Database:-</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>su<span class="w"> </span>-<span class="w"> </span>postgres
+$<span class="w"> </span>/opt/PostgreSQL/15.2/bin/initdb<span class="w"> </span>-D<span class="w"> </span>/DATA/postgres/15.2/testdb
+$<span class="w"> </span>/opt/PostgreSQL/15.2/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>/DATA/postgres/15.2/testdb<span class="w"> </span>-l<span class="w"> </span>logfile<span class="w"> </span>start
+
+<span class="w">     </span>With<span class="w"> </span>this<span class="w"> </span>we<span class="w"> </span>can<span class="w"> </span>start<span class="w"> </span>or<span class="w"> </span>stop<span class="w"> </span>cluster<span class="w"> </span>using<span class="w"> </span>:-
+$<span class="w"> </span>/opt/PostgreSQL/15.2/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>/DATA/postgres/15.2/testdb<span class="w">  </span>**start/stop**
+</pre></div>
+</div>
+</li>
+<li><p>Setting Environment Variables:-</p>
+<p><strong>Setting Environment Variables is very important for trouble free start up/shutdown of the database server</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PATH - should point correct bin directory</p></li>
+<li><p>PGDATA - should point to correct data cluster directory</p></li>
+<li><p>PGPORT - should point correct port on which database cluster is running</p></li>
+<li><p>PGUSER – specifies the default database user name</p></li>
+<li><p>Edit .profile or .bash_profile to set the variables</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>8).bash_profile Creation - last step</p>
+<blockquote>
+<div><blockquote>
+<div><p>nano .bash_profile</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/bin
+<span class="nb">export</span><span class="w"> </span>PATH
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/opt/PostgreSQL/15.2/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PGDATA</span><span class="o">=</span>/DATA/postgres/15.2/testdb
+<span class="nb">export</span><span class="w"> </span><span class="nv">PGDATABASE</span><span class="o">=</span>postgres
+<span class="nb">export</span><span class="w"> </span><span class="nv">PGUSER</span><span class="o">=</span>postgres
+<span class="nb">export</span><span class="w"> </span><span class="nv">PGPORT</span><span class="o">=</span><span class="m">5432</span>
+<span class="c1">#export PGLOCALEDIR=/opt/PostgreSQL/15.2/share/locale</span>
+<span class="c1">#export MANPATH=$MANPATH:/opt/PostgreSQL/15.2/share/man</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic" start="8">
+<li><p>Exit and now run the bash profile to connect database server with hte help with postgresql client <strong>psql</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$.<span class="w"> </span>.bash_profile
+</pre></div>
+</div>
+</li>
+<li><p>Connect with database server :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/home/postgres<span class="w"> </span>$<span class="w"> </span>psql<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span><span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-d<span class="w"> </span>postgres
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
 </section>
 <section id="backup-and-recovery">
-<h2>Backup and Recovery:<a class="headerlink" href="#backup-and-recovery" title="Link to this heading"></a></h2>
-</section>
-<section id="replication-and-ha">
-<h2>Replication and HA :<a class="headerlink" href="#replication-and-ha" title="Link to this heading"></a></h2>
+<h2>Backup and Recovery :<a class="headerlink" href="#backup-and-recovery" title="Link to this heading"></a></h2>
+<ul class="simple" id="pgbackup">
+<li><p>step to backup on postgresql database</p></li>
+</ul>
 </section>
 </section>
 

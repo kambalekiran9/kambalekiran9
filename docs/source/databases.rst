@@ -1,8 +1,9 @@
 DATABASES : 
-===========
+===============
 
 :ref:`PostgreSQL:<open>` 
-----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 **Introduction To PostgreSQL** : 
 
   **What is mean by Database Management system ?**
@@ -78,7 +79,8 @@ DATABASES :
   * **JSON and JSONB Support:** Native storage and querying of JSON data types.
   * **Open Source and Community Support:** Active community with a wide range of extensions and plugins.
 
-* **PostgreSQL Installation:**
+PostgreSQL Installation:
+--------------------------
 
   * **Agenda:**
 
@@ -111,27 +113,35 @@ DATABASES :
      * :ref:`Source-code-Installtion:<install-source>` 
   
 
-* **Backup and Recovry:**
-
-  * PostgreSQL supports various installation options on various operating systems.
+Backup and Recovry:
+--------------------------
+  
+   * PostgreSQL supports various installation options on various operating systems.
 
     
-     * :ref:`PostgreSQL-Backup :<pgbackup>`
+     * :ref:`PostgreSQL-Backup:<pgbackup>`
  
 
 
 
 
 :ref:`MongoDB :<openmongo>`
------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 MongoDB is a popular NoSQL database known for its flexibility and scalability. 
 It stores data in flexible, JSON-like BSON documents. MongoDB is designed for horizontal scaling, enabling efficient handling of large amounts of data. 
 It supports dynamic schemas, allowing documents in the same collection to have different fields. MongoDB Atlas, a cloud-based database service, simplifies deployment and management.
 With a strong community and comprehensive documentation, MongoDB is widely used for modern, scalable applications.
 Keep abreast of the latest features and versions on the official MongoDB website.
 
+
+Installtion of MongoDB:
+------------------------
+
+
 :ref:`Oracle<openoracle>`
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Oracle Database is a powerful relational database management system recognized for its robustness and scalability. 
 It ensures data integrity through ACID compliance and supports advanced features like stored procedures and triggers. 
 Oracle offers a wide range of data types and is known for its SQL compliance. 

@@ -1,16 +1,16 @@
 .. _open:
-
+ 
 PostgreSQL Totorial :
 =========================
-=========================
+
   
 Installtion and Configuration :
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _install:
 
 A) Step to Install PostgreSQL from apt-get:
 ----------------------------------------------------
-----------------------------------------------------
+
 
 * Step 1: Update Package List:
 
@@ -22,7 +22,7 @@ A) Step to Install PostgreSQL from apt-get:
 
   .. code-block:: bash 
 
-      $ sudo apt-get install postgresql postgresql-contrib
+     $ sudo apt-get install postgresql postgresql-contrib
         This will install the PostgreSQL database server and additional contrib packages.
 
 * Step 3: Start and Enable PostgreSQL Service
@@ -58,8 +58,8 @@ A) Step to Install PostgreSQL from apt-get:
 .. _install-source:
 
 B) Steps to install postgresql from source code:
----------------------------------------------------------------
----------------------------------------------------------------
+--------------------------------------------------------------
+
 
   **we can download the sources for the Postgresql-15.2 from**
     
@@ -107,7 +107,7 @@ B) Steps to install postgresql from source code:
       $ sudo make install-world
 
 
-   .. notes::
+   .. warning::
        
       ./configure --help
        When no option specified for --prefix, PostgreSQL installs into /usr/local/pgsql/bin, /usr/local/pgsql/lib   by default
@@ -187,11 +187,11 @@ B) Steps to install postgresql from source code:
 
 
 Backup and Recovery :
--------------------------------
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _pgbackup:
 
-    step to backup on postgresql database 
+
+* step to backup on postgresql database 
 
 

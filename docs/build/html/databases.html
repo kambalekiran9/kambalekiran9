@@ -46,13 +46,20 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">DATABASES :</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#postgresql"><span class="xref std std-ref">PostgreSQL:</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mongodb"><span class="xref std std-ref">MongoDB :</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#postgresql"><span class="xref std std-ref">PostgreSQL:</span></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#postgresql-installation">PostgreSQL Installation:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#backup-and-recovry">Backup and Recovry:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mongodb"><span class="xref std std-ref">MongoDB :</span></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installtion-of-mongodb">Installtion of MongoDB:</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#oracle"><span class="xref std std-ref">Oracle</span></a></li>
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">PostgreSQL</span></p>
+<p class="caption" role="heading"><span class="caption-text">Postgresql</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Totorial :</a></li>
 </ul>
@@ -93,12 +100,153 @@
 <h1>DATABASES :<a class="headerlink" href="#databases" title="Link to this heading"></a></h1>
 <section id="postgresql">
 <h2><a class="reference internal" href="postgresql.html#open"><span class="std std-ref">PostgreSQL:</span></a><a class="headerlink" href="#postgresql" title="Link to this heading"></a></h2>
-<p>PostgreSQL is a robust open-source relational database management system known for its extensibility and standards compliance.
-It supports ACID compliance, foreign keys, and advanced features like triggers and stored procedures.
-With a wide range of built-in and custom data types, PostgreSQL ensures flexibility in data management.
-Its active open-source community provides strong support and regular updates. PostgreSQL scales both vertically and horizontally, making it suitable for various applications.
-Security features include SSL support and robust user authentication. Popular tools like pgAdmin and DBeaver simplify database management.
-Released under the PostgreSQL License, it follows permissive open-source principles. Check the official documentation for the latest features and version details.</p>
+<p><strong>Introduction To PostgreSQL</strong> :</p>
+<blockquote>
+<div><p><strong>What is mean by Database Management system ?</strong></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>A database is a structured collection of data. To add, access and process data stored in a computer
+database where database management system is needed and the data is stored in relational model
+therefore it’s called Relational Database Management Systems (RDBMS).</p></li>
+<li><p>There are wide variety of relational databases available in the market to serve the purpose of the business
+needs from small to high end mission critical systems.</p></li>
+</ul>
+<dl class="simple">
+<dt><strong>Commercial Databases :</strong> Oracle, Microsoft SQL Server, DB2, Informix, MySQL Enterprise Edition (Oracle),Postgres Plus Advanced Server (EnterpriseDB )</dt><dd><p><strong>Open Source Databases :</strong> PostgreSQL, MySQL, MongoDB etc</p>
+</dd>
+</dl>
+<p><strong>What is mean by Open Source Databases?</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Open source means that it’s possible for anyone to use and modify the software. Anybody can download
+the open source software from internet and use it without paying anything and if needed the source code
+can be changed as per the business needs. Here we will concentrate more on PostgreSQL</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Origin Of PostgreSQL:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The world’s most advanced open source database</p></li>
+<li><p>Designed for extensibility and customization</p></li>
+<li><p>ANSI (American National Standards Institute)/ISO (International organization for Standardization) compliant
+SQL support</p></li>
+<li><p>PostgreSQL, originally called Postgres, was created at University of California, Berkeley by a prof. named
+Michael Stonebraker Actively developed for more than 20 years</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p><strong>Postgres (1986-1993)</strong></p>
+<blockquote>
+<div><p>Stonebraker started Postgres in 1986 as a followup project to its predecessor, Ingres, now owned by
+Computer Associates.</p>
+</div></blockquote>
+</li>
+<li><p><strong>Postgres95 (1994-1995)</strong></p>
+<p>Postgres, developed between 1986-1994, was a project meant to break new ground in database
+concepts such as exploration of “object relational” technologies. In 1995, two Ph.D. students from
+Stonebraker’s lab, Andrew Yu and Jolly Chen, replaced Postgres’ POSTQUEL query language with an
+extended subset of SQL. They renamed the system to Postgres95.</p>
+</li>
+<li><p><strong>PostgreSQL (1996-current)</strong></p>
+<blockquote>
+<div><p>With the start of its new life in the open source world, with many new features and enhancements,
+the database system took its current name: PostgreSQL. (“Postgres” is still used as an easy-to-pronounce
+nick name.)</p>
+</div></blockquote>
+</li>
+<li><p><strong>Active global support community</strong></p>
+<blockquote>
+<div><p>Support Mailing Lists
+<a class="reference external" href="http://www.Postgresql.org/community/lists/">http://www.Postgresql.org/community/lists/</a></p>
+</div></blockquote>
+</li>
+<li><p><strong>Download link for PostgreSQL:</strong></p>
+<blockquote>
+<div><blockquote>
+<div><p><a class="reference external" href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</a></p>
+<p><a class="reference external" href="http://www.enterprisedb.com/download/">http://www.enterprisedb.com/download/</a></p>
+</div></blockquote>
+<img alt="_images/postgresql-logo.png" src="_images/postgresql-logo.png" />
+</div></blockquote>
+</li>
+<li><p><strong>PostgreSQL Major Features:</strong></p>
+<ul class="simple">
+<li><p><strong>ACID Compliance:</strong> Ensures data integrity and reliability.</p></li>
+<li><p><strong>Extensibility:</strong> Allows custom data types, operators, and functions.</p></li>
+<li><p><strong>Concurrency Control (MVCC):</strong> Supports simultaneous transactions without conflicts.</p></li>
+<li><p><strong>Data Types:</strong> Offers a wide range, including numeric, string, JSON, and arrays.</p></li>
+<li><p><strong>Indexing:</strong> Utilizes various techniques (B-tree, hash, GiST) for optimized query performance.</p></li>
+<li><p><strong>Full Text Search:</strong> Built-in support for efficient searching of textual data.</p></li>
+<li><p><strong>Triggers and Stored Procedures:</strong> Enables custom logic execution in response to events.</p></li>
+<li><p><strong>Foreign Keys and Constraints:</strong> Maintains referential integrity and data consistency.</p></li>
+<li><p><strong>Replication:</strong> Supports various methods for high availability and fault tolerance.</p></li>
+<li><p><strong>Security:</strong> Provides user authentication, encryption, and role-based access control.</p></li>
+<li><p><strong>Performance Optimization:</strong> Includes query optimization, parallel processing, and caching.</p></li>
+<li><p><strong>Scalability:</strong> Scales horizontally and vertically for handling large datasets.</p></li>
+<li><p><strong>JSON and JSONB Support:</strong> Native storage and querying of JSON data types.</p></li>
+<li><p><strong>Open Source and Community Support:</strong> Active community with a wide range of extensions and plugins.</p></li>
+</ul>
+</li>
+</ul>
+<section id="postgresql-installation">
+<h3>PostgreSQL Installation:<a class="headerlink" href="#postgresql-installation" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul>
+<li><p><strong>Agenda:</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>OS user &amp; Permissions</p></li>
+<li><p>Installation Options</p></li>
+<li><p>Stack Builder</p></li>
+<li><p>Installation from source code</p></li>
+<li><p>Installatin from Apt-get</p></li>
+<li><p>Environment Variables</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>OS User &amp; Permissions :</strong></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>PostgreSQL runs as a daemon (Unix / Linux) or service (Windows)</p></li>
+<li><p>All PostgreSQL processes and data files must be owned by a user in the OS</p></li>
+<li><p>OS user is un-related to database user accounts</p></li>
+<li><p>For security reasons, the OS user must not be root or an administrative account</p></li>
+<li><p>During installation a postgres locked user will be created on linux and all the processes and data files owned by Postgres OS login.</p></li>
+<li><p>Windows does not have locked users; a password is required</p></li>
+<li><p>PostgreSQL binaries need to run using root OS user.</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p><strong>Installation Options :</strong></p>
+<ul>
+<li><p>PostgreSQL supports various installation options on various operating systems.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="postgresql.html#install"><span class="std std-ref">One-Click-installer(apt-get installtion):</span></a></p></li>
+<li><p><a class="reference internal" href="postgresql.html#install-source"><span class="std std-ref">Source-code-Installtion:</span></a></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="backup-and-recovry">
+<h3>Backup and Recovry:<a class="headerlink" href="#backup-and-recovry" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>PostgreSQL supports various installation options on various operating systems.</p>
+<ul>
+<li><p><a class="reference internal" href="postgresql.html#pgbackup"><span class="std std-ref">PostgreSQL-Backup:</span></a></p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
 </section>
 <section id="mongodb">
 <h2><a class="reference internal" href="mongodb.html#openmongo"><span class="std std-ref">MongoDB :</span></a><a class="headerlink" href="#mongodb" title="Link to this heading"></a></h2>
@@ -107,6 +255,9 @@ It stores data in flexible, JSON-like BSON documents. MongoDB is designed for ho
 It supports dynamic schemas, allowing documents in the same collection to have different fields. MongoDB Atlas, a cloud-based database service, simplifies deployment and management.
 With a strong community and comprehensive documentation, MongoDB is widely used for modern, scalable applications.
 Keep abreast of the latest features and versions on the official MongoDB website.</p>
+<section id="installtion-of-mongodb">
+<h3>Installtion of MongoDB:<a class="headerlink" href="#installtion-of-mongodb" title="Link to this heading"></a></h3>
+</section>
 </section>
 <section id="oracle">
 <h2><a class="reference internal" href="oracle.html#openoracle"><span class="std std-ref">Oracle</span></a><a class="headerlink" href="#oracle" title="Link to this heading"></a></h2>
