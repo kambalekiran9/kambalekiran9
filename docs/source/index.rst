@@ -1,5 +1,5 @@
 
-Tutorial-DBA - By | Kiran  
+Tutorial-DBA - By | Kiran Kambale
 ==============================================
 
 As a PostgreSQL Database Administrator with 1+ year of experience at Shreeyansh DB Software in Pune and currently pursuing my MBA in IT Management, I'm passionate about data optimization and IT strategy.
