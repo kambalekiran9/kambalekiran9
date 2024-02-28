@@ -112,11 +112,14 @@ PostgreSQL Installation:
 
      * :ref:`Source-code-Installtion:<install-source>` 
   
+   
+     * :ref:`Cluster-creation:<cluster-creation>`
 
+  
 Backup and Recovry:
 --------------------------
   
-   * PostgreSQL supports various installation options on various operating systems.
+   * PostgreSQL supports various types of backup.
 
     
      * :ref:`PostgreSQL-Backup:<pgbackup>`

@@ -1,14 +1,14 @@
 .. _open:
  
-PostgreSQL Totorial :
-=========================
+Getting started with PostgreSQL  :
+===================================
 
   
 Installtion and Configuration :
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _install:
 
-A) Step to Install PostgreSQL from apt-get:
+a)Step to Install PostgreSQL from apt-get:
 ----------------------------------------------------
 
 
@@ -57,7 +57,7 @@ A) Step to Install PostgreSQL from apt-get:
 
 .. _install-source:
 
-B) Steps to install postgresql from source code:
+b) Steps to install postgresql from source code:
 --------------------------------------------------------------
 
 
@@ -186,6 +186,213 @@ B) Steps to install postgresql from source code:
 
 
 
+
+
+.. _cluster-creation:
+
+
+c) PostgreSQL Cluster Creation:
+---------------------------------
+
+
+**PostgreSQL Cluster:**
+
+  * Each instance of PostgreSQL is called as “cluster”
+  * Each cluster is comprised of a data directory that contains all data and configuration files
+  * Referred to in following ways
+  * Location of the data directory
+  * Port number
+  * Ip address
+  * A single server can have many installations and you can create multiple clusters using initdb.
+  * Each cluster runs on unique ip address or unique port number to differentiate among multiple clusters that exists
+    on same server.
+
+**Creating a Database Cluster:**
+
+  * Use initdb to create a database cluster. Must be run as the OS user who own the database processes
+    and data files that the instance will run.. /opt/PostgreSQL/15.2/bin/initdb--help
+
+ 
+  .. code-block:: bash
+ 
+
+      $ /opt/PostgreSQL/15.2/bin/initdb-D <data directory>
+
+
+       
+       
+        -D <data directory> - Database cluster directory
+        -U<super user> - Select the database super user name
+        -E <encoding> - Specify the database
+
+
+  * After/creating a new database cluster, modify postgresql.conf and pg_hba.conf. be sure to assign a
+    unique port # to the cluster in postgresql.conf   
+
+
+* **Type folloing command to create database cluster:-**
+
+
+    **~$ /opt/PostgreSQL/15.2/bin/initdb -D /DATA/postgres/15.2/testdb**
+
+
+* **Success. You can now start the database server using:**
+
+
+    **/opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/test start**  
+
+
+
+  * PostgreSQL maintains all configuration parameters in the data directory like postgreSQL.conf,
+    pg_hba.conf and pg_ident.conf files.
+  * By default, postgresql.conf exists under Data directory unless it's specified in different path with -c
+    option used in pg_ctl option while starting the cluster.
+  * postmaster.opts file contains the binary path of the PostgreSQL and data directory that is used for the
+    respective cluster.
+
+
+**Starting and Stopping the Server (pg_ctl)**
+
+1./opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/test start
+
+2./opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/test stop
+
+3./opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/test restart
+
+4./opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/test status 
+
+ 
+
+  * when any changes performed in postgresql.conf the cluster can be reloaded 
+    with REOAD option with out stopping /starting the server for most of the parameters.
+
+5./opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/test reload 
+
+
+* **Systemctl services:**
+
+
+   * Init scripts, used to start services, are stored in directories such as /lib/systemd/system or
+     /usr/lib/systemd/system. The init script itself can have any name, with the suffix .service. The
+     script contains a specific format of information that describes the service, how to start and stop
+     it, and the user and group under which it should run.
+    
+   * The systemctl utility that you will use to control your service accepts various commands the
+      ones you are most likely to use are as follows:
+
+
+     * systemctl start name.service
+     * systemctl stop name.service
+     * systemctl reload name.service
+     * systemctl restart name.service
+     * systemctl status name.service
+
+
+* **Location of systemctl file :-**
+
+    sudo -i (It will log as root user )
+    cd /etc/systemd/system
+
+* **To create new systemctl postgresql service file :-**
+
+    * $ sudo nano postgresql.service
+
+
+      .. code-block:: bash
+
+
+
+          [Unit]
+          Description=PostgreSQL database server
+          After=network.target postgresql.service DATA.mount
+          [Service]
+          Type=forking
+          User=postgres
+          Group=postgres
+          OOMScoreAdjust=-1000
+          Environment=PG_OOM_ADJUST_FILE=/proc/self/oom_score_adj
+          Environment=PG_OOM_ADJUST_VALUE=0
+          Environment=PGSTARTTIMEOUT=270
+          Environment=PGDATA=/DATA/postgres/15.2/testdb
+          ExecStart=/opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/testdb  start
+          ExecStop=/opt/PostgreSQL/15.2/bin/pg_ctl  -D /DATA/postgres/15.2/testdb stop
+          ExecReload=/opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/testdb reload
+          TimeoutSec=300
+          [Install]
+          WantedBy=multi-user.target
+
+
+
+
+
+
+**To start and stop server by Systemctl services**
+
+
+   * systemctl start daemon-reload
+   * systemctl enable postgresql.service
+   * systemctl start postgresql.service
+   * systemctl stop postgresql.service
+   * systemctl status postgresql.service
+   
+
+
+Data Types:
+^^^^^^^^^^^^^^^^^
+
+* **PostgreSQL has a rich set of native data types available to users.Users can add new types to PostgreSQL using the CREATE TYPE command.**
+
+
+    https://www.postgresql.org/docs/9.6/static/datatype.html
+
+
+a) Numeric Types :
+--------------------
+
+* Table
+
+
+=========  =============   ================================        =========================================================
+Name       Storage Size    Description                             Range
+=========  =============   ================================        =========================================================
+BIGINT     8 bytes         large-range integer                      -9223372036854775808 to
+                                                                     +9223372036854775807   
+     
+DECIMAL    variable        user-speciﬁed precision, exact           up to 131072 digits before the decimal point; up
+                                                                     to 16383 digits after the decimal point
+
+SMALLINT   2 bytes         small-range integer                      -32768 to +32767
+
+INTEGER    4 bytes         typical choice for integer               -2147483648 to +2147483647 
+
+NUMERIC    variable        user-speciﬁed precision, exact           up to 131072 digits before the decimal point
+                                                                     to 16383 digits after the decimal point       
+=========  =============   ================================        =========================================================
+
+
+
+b) Advanced data tytpes:
+---------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Backup and Recovery :
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -193,5 +400,19 @@ Backup and Recovery :
 
 
 * step to backup on postgresql database 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

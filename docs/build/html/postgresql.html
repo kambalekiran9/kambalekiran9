@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PostgreSQL Totorial : &mdash; dba-tutorial-By Kiran 2.0.0 documentation</title>
+  <title>Getting started with PostgreSQL : &mdash; dba-tutorial-By Kiran Kambale 2.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -34,7 +34,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            dba-tutorial-By Kiran
+            dba-tutorial-By Kiran Kambale
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -49,10 +49,16 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Postgresql</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">PostgreSQL Totorial :</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started with PostgreSQL  :</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installtion-and-configuration">Installtion and Configuration :</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#a-step-to-install-postgresql-from-apt-get">A) Step to Install PostgreSQL from apt-get:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#b-steps-to-install-postgresql-from-source-code">B) Steps to install postgresql from source code:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-step-to-install-postgresql-from-apt-get">a)Step to Install PostgreSQL from apt-get:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#b-steps-to-install-postgresql-from-source-code">b) Steps to install postgresql from source code:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c-postgresql-cluster-creation">c) PostgreSQL Cluster Creation:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-types">Data Types:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-numeric-types">a) Numeric Types :</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#b-advanced-data-tytpes">b) Advanced data tytpes:</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#backup-and-recovery">Backup and Recovery :</a></li>
@@ -74,7 +80,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">dba-tutorial-By Kiran</a>
+          <a href="index.html">dba-tutorial-By Kiran Kambale</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -82,7 +88,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">PostgreSQL Totorial :</li>
+      <li class="breadcrumb-item active">Getting started with PostgreSQL  :</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/postgresql.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -92,12 +98,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="postgresql-totorial">
-<span id="open"></span><h1>PostgreSQL Totorial :<a class="headerlink" href="#postgresql-totorial" title="Link to this heading"></a></h1>
+  <section id="getting-started-with-postgresql">
+<span id="open"></span><h1>Getting started with PostgreSQL  :<a class="headerlink" href="#getting-started-with-postgresql" title="Link to this heading"></a></h1>
 <section id="installtion-and-configuration">
 <h2>Installtion and Configuration :<a class="headerlink" href="#installtion-and-configuration" title="Link to this heading"></a></h2>
 <section id="a-step-to-install-postgresql-from-apt-get">
-<span id="install"></span><h3>A) Step to Install PostgreSQL from apt-get:<a class="headerlink" href="#a-step-to-install-postgresql-from-apt-get" title="Link to this heading"></a></h3>
+<span id="install"></span><h3>a)Step to Install PostgreSQL from apt-get:<a class="headerlink" href="#a-step-to-install-postgresql-from-apt-get" title="Link to this heading"></a></h3>
 <ul>
 <li><p>Step 1: Update Package List:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
@@ -140,7 +146,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> <
 </ul>
 </section>
 <section id="b-steps-to-install-postgresql-from-source-code">
-<span id="install-source"></span><h3>B) Steps to install postgresql from source code:<a class="headerlink" href="#b-steps-to-install-postgresql-from-source-code" title="Link to this heading"></a></h3>
+<span id="install-source"></span><h3>b) Steps to install postgresql from source code:<a class="headerlink" href="#b-steps-to-install-postgresql-from-source-code" title="Link to this heading"></a></h3>
 <blockquote>
 <div><p><strong>we can download the sources for the Postgresql-15.2 from</strong></p>
 </div></blockquote>
@@ -248,6 +254,211 @@ $<span class="w"> </span>/opt/PostgreSQL/15.2/bin/pg_ctl<span class="w"> </span>
 </div>
 </li>
 </ol>
+</section>
+<section id="c-postgresql-cluster-creation">
+<span id="cluster-creation"></span><h3>c) PostgreSQL Cluster Creation:<a class="headerlink" href="#c-postgresql-cluster-creation" title="Link to this heading"></a></h3>
+<p><strong>PostgreSQL Cluster:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Each instance of PostgreSQL is called as “cluster”</p></li>
+<li><p>Each cluster is comprised of a data directory that contains all data and configuration files</p></li>
+<li><p>Referred to in following ways</p></li>
+<li><p>Location of the data directory</p></li>
+<li><p>Port number</p></li>
+<li><p>Ip address</p></li>
+<li><p>A single server can have many installations and you can create multiple clusters using initdb.</p></li>
+<li><p>Each cluster runs on unique ip address or unique port number to differentiate among multiple clusters that exists
+on same server.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Creating a Database Cluster:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Use initdb to create a database cluster. Must be run as the OS user who own the database processes
+and data files that the instance will run.. /opt/PostgreSQL/15.2/bin/initdb–help</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>/opt/PostgreSQL/15.2/bin/initdb-D<span class="w"> </span>&lt;data<span class="w"> </span>directory&gt;
+
+
+
+
+<span class="w">  </span>-D<span class="w"> </span>&lt;data<span class="w"> </span>directory&gt;<span class="w"> </span>-<span class="w"> </span>Database<span class="w"> </span>cluster<span class="w"> </span>directory
+<span class="w">  </span>-U&lt;super<span class="w"> </span>user&gt;<span class="w"> </span>-<span class="w"> </span>Select<span class="w"> </span>the<span class="w"> </span>database<span class="w"> </span>super<span class="w"> </span>user<span class="w"> </span>name
+<span class="w">  </span>-E<span class="w"> </span>&lt;encoding&gt;<span class="w"> </span>-<span class="w"> </span>Specify<span class="w"> </span>the<span class="w"> </span>database
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>After/creating a new database cluster, modify postgresql.conf and pg_hba.conf. be sure to assign a
+unique port # to the cluster in postgresql.conf</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p><strong>Type folloing command to create database cluster:-</strong></p>
+<blockquote>
+<div><p><strong>~$ /opt/PostgreSQL/15.2/bin/initdb -D /DATA/postgres/15.2/testdb</strong></p>
+</div></blockquote>
+</li>
+<li><p><strong>Success. You can now start the database server using:</strong></p>
+<blockquote>
+<div><p><strong>/opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/test start</strong></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>PostgreSQL maintains all configuration parameters in the data directory like postgreSQL.conf,
+pg_hba.conf and pg_ident.conf files.</p></li>
+<li><p>By default, postgresql.conf exists under Data directory unless it’s specified in different path with -c
+option used in pg_ctl option while starting the cluster.</p></li>
+<li><p>postmaster.opts file contains the binary path of the PostgreSQL and data directory that is used for the
+respective cluster.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Starting and Stopping the Server (pg_ctl)</strong></p>
+<p>1./opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/test start</p>
+<p>2./opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/test stop</p>
+<p>3./opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/test restart</p>
+<p>4./opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/test status</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>when any changes performed in postgresql.conf the cluster can be reloaded
+with REOAD option with out stopping /starting the server for most of the parameters.</p></li>
+</ul>
+</div></blockquote>
+<p>5./opt/PostgreSQL/15.2/bin/pg_ctl -D /DATA/postgres/15.2/test reload</p>
+<ul>
+<li><p><strong>Systemctl services:</strong></p>
+<blockquote>
+<div><ul>
+<li><p>Init scripts, used to start services, are stored in directories such as /lib/systemd/system or
+/usr/lib/systemd/system. The init script itself can have any name, with the suffix .service. The
+script contains a specific format of information that describes the service, how to start and stop
+it, and the user and group under which it should run.</p></li>
+<li><dl class="simple">
+<dt>The systemctl utility that you will use to control your service accepts various commands the</dt><dd><p>ones you are most likely to use are as follows:</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>systemctl start name.service</p></li>
+<li><p>systemctl stop name.service</p></li>
+<li><p>systemctl reload name.service</p></li>
+<li><p>systemctl restart name.service</p></li>
+<li><p>systemctl status name.service</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Location of systemctl file :-</strong></p>
+<blockquote>
+<div><p>sudo -i (It will log as root user )
+cd /etc/systemd/system</p>
+</div></blockquote>
+</li>
+<li><p><strong>To create new systemctl postgresql service file :-</strong></p>
+<blockquote>
+<div><ul>
+<li><p>$ sudo nano postgresql.service</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>PostgreSQL<span class="w"> </span>database<span class="w"> </span>server
+<span class="nv">After</span><span class="o">=</span>network.target<span class="w"> </span>postgresql.service<span class="w"> </span>DATA.mount
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">Type</span><span class="o">=</span>forking
+<span class="nv">User</span><span class="o">=</span>postgres
+<span class="nv">Group</span><span class="o">=</span>postgres
+<span class="nv">OOMScoreAdjust</span><span class="o">=</span>-1000
+<span class="nv">Environment</span><span class="o">=</span><span class="nv">PG_OOM_ADJUST_FILE</span><span class="o">=</span>/proc/self/oom_score_adj
+<span class="nv">Environment</span><span class="o">=</span><span class="nv">PG_OOM_ADJUST_VALUE</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">Environment</span><span class="o">=</span><span class="nv">PGSTARTTIMEOUT</span><span class="o">=</span><span class="m">270</span>
+<span class="nv">Environment</span><span class="o">=</span><span class="nv">PGDATA</span><span class="o">=</span>/DATA/postgres/15.2/testdb
+<span class="nv">ExecStart</span><span class="o">=</span>/opt/PostgreSQL/15.2/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>/DATA/postgres/15.2/testdb<span class="w">  </span>start
+<span class="nv">ExecStop</span><span class="o">=</span>/opt/PostgreSQL/15.2/bin/pg_ctl<span class="w">  </span>-D<span class="w"> </span>/DATA/postgres/15.2/testdb<span class="w"> </span>stop
+<span class="nv">ExecReload</span><span class="o">=</span>/opt/PostgreSQL/15.2/bin/pg_ctl<span class="w"> </span>-D<span class="w"> </span>/DATA/postgres/15.2/testdb<span class="w"> </span>reload
+<span class="nv">TimeoutSec</span><span class="o">=</span><span class="m">300</span>
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>To start and stop server by Systemctl services</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>systemctl start daemon-reload</p></li>
+<li><p>systemctl enable postgresql.service</p></li>
+<li><p>systemctl start postgresql.service</p></li>
+<li><p>systemctl stop postgresql.service</p></li>
+<li><p>systemctl status postgresql.service</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="data-types">
+<h2>Data Types:<a class="headerlink" href="#data-types" title="Link to this heading"></a></h2>
+<ul>
+<li><p><strong>PostgreSQL has a rich set of native data types available to users.Users can add new types to PostgreSQL using the CREATE TYPE command.</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.postgresql.org/docs/9.6/static/datatype.html">https://www.postgresql.org/docs/9.6/static/datatype.html</a></p>
+</div></blockquote>
+</li>
+</ul>
+<section id="a-numeric-types">
+<h3>a) Numeric Types :<a class="headerlink" href="#a-numeric-types" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Table</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Storage Size</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BIGINT</p></td>
+<td><p>8 bytes</p></td>
+<td><p>large-range integer</p></td>
+<td><dl class="simple">
+<dt>-9223372036854775808 to</dt><dd><p>+9223372036854775807</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>DECIMAL</p></td>
+<td><p>variable</p></td>
+<td><p>user-speciﬁed precision, exact</p></td>
+<td><dl class="simple">
+<dt>up to 131072 digits before the decimal point; up</dt><dd><p>to 16383 digits after the decimal point</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>SMALLINT</p></td>
+<td><p>2 bytes</p></td>
+<td><p>small-range integer</p></td>
+<td><p>-32768 to +32767</p></td>
+</tr>
+<tr class="row-odd"><td><p>INTEGER</p></td>
+<td><p>4 bytes</p></td>
+<td><p>typical choice for integer</p></td>
+<td><p>-2147483648 to +2147483647</p></td>
+</tr>
+<tr class="row-even"><td><p>NUMERIC</p></td>
+<td><p>variable</p></td>
+<td><p>user-speciﬁed precision, exact</p></td>
+<td><dl class="simple">
+<dt>up to 131072 digits before the decimal point</dt><dd><p>to 16383 digits after the decimal point</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="b-advanced-data-tytpes">
+<h3>b) Advanced data tytpes:<a class="headerlink" href="#b-advanced-data-tytpes" title="Link to this heading"></a></h3>
 </section>
 </section>
 <section id="backup-and-recovery">
