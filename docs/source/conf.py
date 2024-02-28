@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'dba-tutorial-By Kiran'
+project = 'dba-tutorial-By Kiran Kambale'
 
 html_sidebars = {
     '**': ['custom_sidebar.html'],
