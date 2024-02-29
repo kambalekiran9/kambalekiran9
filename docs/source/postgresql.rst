@@ -1,15 +1,19 @@
 .. _open:
- 
-Getting started with PostgreSQL  :
-===================================
 
-  
+####################################### 
+Getting started with PostgreSQL  :
+#######################################
+
+=================================  
 Installtion and Configuration :
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=================================
+
+
 .. _install:
 
+---------------------------------------------------
 a)Step to Install PostgreSQL from apt-get:
-----------------------------------------------------
+---------------------------------------------------
 
 
 * Step 1: Update Package List:
@@ -57,8 +61,9 @@ a)Step to Install PostgreSQL from apt-get:
 
 .. _install-source:
 
+---------------------------------------------------
 b) Steps to install postgresql from source code:
---------------------------------------------------------------
+---------------------------------------------------
 
 
   **we can download the sources for the Postgresql-15.2 from**
@@ -190,7 +195,7 @@ b) Steps to install postgresql from source code:
 
 .. _cluster-creation:
 
-
+---------------------------------
 c) PostgreSQL Cluster Creation:
 ---------------------------------
 
@@ -337,19 +342,181 @@ c) PostgreSQL Cluster Creation:
    
 
 
+.. _pgmonitor:
+
+=================================
+PostgreSQL Monitoring Tools :
+=================================
+
+
+* There are several open sources as well as Paid tools are available as front-end to PostgreSQL. Here are a few of them which are widely used :
+
+
+* **pgAgent:**
+    
+   * pgAgent is a job scheduler for PostgreSQL which may be managed using pgAdmin. Prior to pgAdmin v1.9, pgAgent shipped as part of pgAdmin. From pgAdmin v1.9 onwards, pgAgent is shipped as a separate application.
+
+
+* **pg_statsinfo:**
+
+   * Pg_statsinfo in the monitored DB on behalf of the existence of the form, pg_statsinfo regularly collected snaoshot information and stored in the warehouse
+
+
+* **pgCluu:**
+
+   * pgCluu is a PostgreSQL performances monitoring and auditing tool.
+   * View reports of all statistics collected from your PostgreSQL databases cluster. pgCluu will show you the entire informations of the PostgreSQL Cluster and the system utilization
+
+
+* **pgAdmin III:**
+
+    * pgAdmin III is THE Open Source management tool for your PostgreSQL databases. Features full Unicode support, fast, multithreaded query and data editting tools and support for all PostgreSQL object types.
+  
+
+
+* **psql:**
+
+   * It is a command line tool and the primary tool to manage PostgreSQL. pgAdmin
+   * It is a free and open source graphical user interface administration tool for PostgreSQL.
+
+
+
+* **phpPgAdmin:**
+  
+   * It is a web-based administration tool for PostgreSQL written in PHP. It is based on phpMyAdmin tool to manage MySQL.OpenOffice.org Base
+   * It can be used as a front end tool to PostgreSQL.
+
+
+
+* **pgFouine:**
+
+   * It is a log analyzer which creates reports from PostgreSQL log files. Proprietary tools
+   * Lightning Admin for PostgreSQL, Borland Kylix, DBOne, DBTools Manager PgManager, Rekall, Data Architect, SyBase Power Designer, Microsoft Access, eRWin, DeZign for Databases, PGExplorer, Case Studio 2, pgEdit, RazorSQL, MicroOLAP Database Designer, Aqua Data Studio, Tuples, EMS Database Management Tools for PostgreSQL, Navicat, SQL Maestro Group products for PostgreSQL, Datanamic DataDiff for PostgreSQL, Datanamic SchemaDiff for PostgreSQL, DB MultiRun PostgreSQL Edition, SQLPro, SQL Image Viewer, SQL Data Sets etc.
+
+
+
+* **pgBackRest:**
+
+  * pgBackRest is a backup utility in postgresql , Following features are pgBackupRest
+
+     * Parallel Backup & Restore
+     * Local or Remote Operation
+     * Full, Incremental, & Differential Backups
+     * Backup Rotation & Archive Expiration
+     * Backup Integrity - Checksums are calculated for every file in the backup and rechecked during a restore.
+     * Page Checksums - PostgreSQL has supported page-level checksums since 9.3.
+     * Backup Resume - An aborted backup can be resumed from the point where it was stopped.
+     * Streaming Compression & Checksums - Compression and checksum calculations are performed in stream while files are being copied to the repository, whether the repository is located locally or remotely.
+     * Delta Restore - The manifest contains checksums for every file in the backup so that during a restore it is possible to use these checksums to speed processing enormously.
+       Parallel, Asynchronous WAL Push & Get
+     * Tablespace & Link Support - Tablespaces are fully supported and on restore tablespaces can be remapped to any location.
+     * Amazon S3 Support
+     * pgBackRest can encrypt the repository to secure backups wherever they are stored.    
+
+
+
+* **pgbarman:**
+
+  * Open source backup and Restore Utility
+
+    * Barman relies on PostgreSQL’s extremely robust and reliable Point In Time Recovery technology
+    * Barman allows you to remotely manage the backup and recovery phases of multiple servers from the same location
+    * One of the coolest features of Barman is the backup catalogue, which allows you to list, keep, delete, archive and recover several full backups under the same hood
+
+
+
+* **pganalyze:**
+  
+   * gwatch2 is a self-contained, easy to install and highly configurable PostgreSQL monitoring tool. It is dockerized, features a dashboard and can send alerts. No extensions or superuser privileges required!
+
+
+
+* **pg_statsinfo & pg_stats_reporter:**
+
+  * pg_statsinfo is a Postgres extension that collects lots of performance-relevant information inside the Postgres server which then can be aggregated by pg_stats_reporter instances which provide a web interface to the collected data. Both are FOSS software maintained by NTT.
+
+
+
+* **PGObserver:**
+
+
+  * PGObserver is a Python & Java-based Postgres monitoring solution developed by Zalando. It was developed with a focus on stored procedure performance but extended well beyond that.
+
+
+
+* **pgCluu:**
+
+  * pgCluu is a Perl-based monitoring solution which uses psql and sar to collect information about Postgres servers and render comprehensive performance stats.
+
+
+
+* **PoWA:**
+
+
+   * PoWA is a PostgreSQL Workload Analyzer that gathers performance stats and provides real-time charts and graphs to help monitor and tune your PostgreSQL servers. It relies on extensions such as pg_stat_statements, pg_qualstats, pg_stat_kcache, pg_track_settings and HypoPG, and can help you optimize you database easily.
+
+
+
+* **OPM: Open PostgreSQL Monitoring:**
+
+   * Open PostgreSQL Monitoring (OPM) is a free software suite designed to help you manage your PostgreSQL servers. It's a flexible tool that will follow the activity of each instance. It can gather stats, display dashboards and send warnings when something goes wrong. The long-term goal of the project is to provide similar features to those of Oracle Grid Control or SQL Server Management Studio.
+
+
+
+* **pgaudit:**
+
+
+   * The PostgreSQL Audit Extension (or pgaudit) provides detailed session and/or object audit logging via the standard logging facility provided by PostgreSQL. The goal of PostgreSQL Audit to provide the tools needed to produce audit logs required to pass certain government, financial, or ISO certification audits.
+
+
+
+* **CyanAudit:**
+
+   * Cyan Audit is a PostgreSQL utility providing comprehensive and easily-searchable logs of DML (INSERT/UPDATE/DELETE) activity in your database.
+
+    With Cyan Audit you can:
+
+       
+     * Log any table with a PK, regardless of schema.
+     * Search logs by querying a simple view.
+     * Toggle logging on a column-by-column basis using an easy config table.
+     * Attribute every operation to a specific application user.
+     * Label any operation with a human-readable description.
+     * Back up and restore logs with confidence using supplied Perl scripts.
+     * Rotate & drop old logs automatically using a supplied Perl script.
+     * Keep years of logs online comfortably with automatic archival to your cheap tablespace.
+     * Effectively "undo" any recorded transaction by playing its operations in reverse.
+     * Save time with a design focused on ease of setup and maintenance.
+
+
+    Cyan Audit:
+
+     * is written entirely in SQL and PL/pgSQL (except Perl cron scripts).
+     * is Trigger-based.
+     * supports PostgreSQL 9.6 and newer.
+     * has been production tested since 2012.
+     * For installation and usage instructions please see doc/cyanaudit.md. 
+
+
+
+
+.. _pgdata:
+
+==============
 Data Types:
-^^^^^^^^^^^^^^^^^
+==============
 
 * **PostgreSQL has a rich set of native data types available to users.Users can add new types to PostgreSQL using the CREATE TYPE command.**
 
 
     https://www.postgresql.org/docs/9.6/static/datatype.html
 
+-----------------------
+a) Numeric datatype: 
+-----------------------
 
-a) Numeric Types :
---------------------
+* Numeric types consist of two-, four-, and eight-byte integers, four- and eight-byte floating-point numbers, and selectable-precision decimals. 
 
-* Table
 
 
 =========  =============   ================================        =========================================================
@@ -370,40 +537,103 @@ NUMERIC    variable        user-speciﬁed precision, exact           up to 1310
 =========  =============   ================================        =========================================================
 
 
+--------------------
+b) Monetary Types:
+--------------------
 
-b) Advanced data tytpes:
----------------------------
-
-
-
-
-
+* The money type stores a currency amount with a fixed fractional precision; 
+* The fractional precision is determined by the database's lc_monetary setting. The range shown in the table assumes there are two fractional digits. Input is accepted in a variety of formats, including integer and floating-point literals, as well as typical currency formatting, such as '$1,000.00'. Output is generally in the latter form but depends on the locale.
 
 
+=========  =============   ================================        =========================================================
+Name       Storage Size    Description                             Range
+=========  =============   ================================        =========================================================
+money      8 bytes         currency amount                         -92233720368547758.08 to +92233720368547758.07
+=========  =============   ================================        =========================================================
+
+-----------------------
+c) Character Types:
+-----------------------
+ 
+  * The table below lists general-purpose character types available in PostgreSQL.
+
+
+================================      ================================
+Name                                    Description
+================================      ================================
+character varying(n), varchar(n)      variable-length with limit
+
+character(n), char(n)                 fixed-length, blank padded
+ 
+text                                  variable unlimited length
+================================      ================================
+
+
+-------------------------
+d) Binary Data Types:
+-------------------------
+
+   * The bytea data type allows storage of binary strings
 
 
 
+=========  ============================================   ================================   
+Name       Storage Size                                   Description
+=========  ============================================   ================================
+bytea      1 or 4 bytes plus the actual binary string     variable-length binary string
+=========  ============================================   ================================
+
+
+-------------------------
+e) Date/Time Types:
+-------------------------
+   
+
+   * PostgreSQL supports the full set of SQL date and time types, 
+   * Dates are counted according to the Gregorian calendar, even in years before that calendar was introduced  
 
 
 
+===========================    ============    ===================================  ================    ================    =============== 
+Name                           Storage Size    Description                          Low Value           High Value          Resolution
+===========================    ============    ===================================  ================    ================    ===============
+timestamp [ (p) ] [ without      8 bytes       both date and time (no time zone)    4713 BC             294276 AD           1 microsecond 
+time zone ]                                                                                                                 / 14 digits 
+
+timestamp [ (p) ] with time     8 bytes        both date and time, with time zone   4713 BC             294276 AD           1 microsecond 
+zone                                                                                                                        / 14 digits
+
+date                            4 bytes        date (no time of day)                4713 BC             5874897 AD          1 Day
+
+time [ (p) ] [ without time     8 bytes        time of day (no date)                00:00:00            24:00:00            1 microsecond
+zone ]                                                                                                                      / 14 digits
+
+time [ (p) ] with time zone     12 bytes       times of day only, with time zone    00:00:00+1459       24:00:00-1459       1 microsecond
+                                                                                                                            / 14 digits
+
+interval [ fields ] [ (p) ]     16 bytes       time interval                        -178000000 years    178000000 years      1 microsecond
+                                                                                                                             / 14 digits
+===========================    ============    ===================================  ================    ================    ===============
 
 
 
-
-
-
-
+========================
 Backup and Recovery :
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+========================
 
 .. _pgbackup:
 
 
 * step to backup on postgresql database 
 
+--------------------
+1) Logical backup: 
+--------------------
 
 
-
+--------------------
+2) Physical backup: 
+--------------------
 
 
 

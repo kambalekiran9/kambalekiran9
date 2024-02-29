@@ -8,9 +8,9 @@
 
 project = 'dba-tutorial-By Kiran Kambale'
 
-html_sidebars = {
-    '**': ['custom_sidebar.html'],
-}
+#html_sidebars = {
+ #   '**': ['custom_sidebar.html'],
+#}
 
 copyright = '2024, Kiran.kambale'
 author = 'Kiran.kambale'

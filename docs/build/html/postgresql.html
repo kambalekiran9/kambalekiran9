@@ -56,22 +56,26 @@
 <li class="toctree-l3"><a class="reference internal" href="#c-postgresql-cluster-creation">c) PostgreSQL Cluster Creation:</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#postgresql-monitoring-tools">PostgreSQL Monitoring Tools :</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-types">Data Types:</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#a-numeric-types">a) Numeric Types :</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#b-advanced-data-tytpes">b) Advanced data tytpes:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-numeric-datatype">a) Numeric datatype:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#b-monetary-types">b) Monetary Types:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c-character-types">c) Character Types:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-binary-data-types">d) Binary Data Types:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#e-date-time-types">e) Date/Time Types:</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#backup-and-recovery">Backup and Recovery :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backup-and-recovery">Backup and Recovery :</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#logical-backup">1) Logical backup:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#physical-backup">2) Physical backup:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">MongoDB</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="mongodb.html">MongoDB Tutorial :</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Oracle</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="oracle.html">Oracle Tutorial:</a></li>
 </ul>
 
         </div>
@@ -394,8 +398,178 @@ cd /etc/systemd/system</p>
 </div></blockquote>
 </section>
 </section>
+<section id="postgresql-monitoring-tools">
+<span id="pgmonitor"></span><h2>PostgreSQL Monitoring Tools :<a class="headerlink" href="#postgresql-monitoring-tools" title="Link to this heading"></a></h2>
+<ul>
+<li><p>There are several open sources as well as Paid tools are available as front-end to PostgreSQL. Here are a few of them which are widely used :</p></li>
+<li><p><strong>pgAgent:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>pgAgent is a job scheduler for PostgreSQL which may be managed using pgAdmin. Prior to pgAdmin v1.9, pgAgent shipped as part of pgAdmin. From pgAdmin v1.9 onwards, pgAgent is shipped as a separate application.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>pg_statsinfo:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Pg_statsinfo in the monitored DB on behalf of the existence of the form, pg_statsinfo regularly collected snaoshot information and stored in the warehouse</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>pgCluu:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>pgCluu is a PostgreSQL performances monitoring and auditing tool.</p></li>
+<li><p>View reports of all statistics collected from your PostgreSQL databases cluster. pgCluu will show you the entire informations of the PostgreSQL Cluster and the system utilization</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>pgAdmin III:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>pgAdmin III is THE Open Source management tool for your PostgreSQL databases. Features full Unicode support, fast, multithreaded query and data editting tools and support for all PostgreSQL object types.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>psql:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>It is a command line tool and the primary tool to manage PostgreSQL. pgAdmin</p></li>
+<li><p>It is a free and open source graphical user interface administration tool for PostgreSQL.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>phpPgAdmin:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>It is a web-based administration tool for PostgreSQL written in PHP. It is based on phpMyAdmin tool to manage MySQL.OpenOffice.org Base</p></li>
+<li><p>It can be used as a front end tool to PostgreSQL.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>pgFouine:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>It is a log analyzer which creates reports from PostgreSQL log files. Proprietary tools</p></li>
+<li><p>Lightning Admin for PostgreSQL, Borland Kylix, DBOne, DBTools Manager PgManager, Rekall, Data Architect, SyBase Power Designer, Microsoft Access, eRWin, DeZign for Databases, PGExplorer, Case Studio 2, pgEdit, RazorSQL, MicroOLAP Database Designer, Aqua Data Studio, Tuples, EMS Database Management Tools for PostgreSQL, Navicat, SQL Maestro Group products for PostgreSQL, Datanamic DataDiff for PostgreSQL, Datanamic SchemaDiff for PostgreSQL, DB MultiRun PostgreSQL Edition, SQLPro, SQL Image Viewer, SQL Data Sets etc.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>pgBackRest:</strong></p>
+<ul>
+<li><p>pgBackRest is a backup utility in postgresql , Following features are pgBackupRest</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Parallel Backup &amp; Restore</p></li>
+<li><p>Local or Remote Operation</p></li>
+<li><p>Full, Incremental, &amp; Differential Backups</p></li>
+<li><p>Backup Rotation &amp; Archive Expiration</p></li>
+<li><p>Backup Integrity - Checksums are calculated for every file in the backup and rechecked during a restore.</p></li>
+<li><p>Page Checksums - PostgreSQL has supported page-level checksums since 9.3.</p></li>
+<li><p>Backup Resume - An aborted backup can be resumed from the point where it was stopped.</p></li>
+<li><p>Streaming Compression &amp; Checksums - Compression and checksum calculations are performed in stream while files are being copied to the repository, whether the repository is located locally or remotely.</p></li>
+<li><p>Delta Restore - The manifest contains checksums for every file in the backup so that during a restore it is possible to use these checksums to speed processing enormously.
+Parallel, Asynchronous WAL Push &amp; Get</p></li>
+<li><p>Tablespace &amp; Link Support - Tablespaces are fully supported and on restore tablespaces can be remapped to any location.</p></li>
+<li><p>Amazon S3 Support</p></li>
+<li><p>pgBackRest can encrypt the repository to secure backups wherever they are stored.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>pgbarman:</strong></p>
+<ul class="simple">
+<li><p>Open source backup and Restore Utility</p>
+<ul>
+<li><p>Barman relies on PostgreSQL’s extremely robust and reliable Point In Time Recovery technology</p></li>
+<li><p>Barman allows you to remotely manage the backup and recovery phases of multiple servers from the same location</p></li>
+<li><p>One of the coolest features of Barman is the backup catalogue, which allows you to list, keep, delete, archive and recover several full backups under the same hood</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>pganalyze:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>gwatch2 is a self-contained, easy to install and highly configurable PostgreSQL monitoring tool. It is dockerized, features a dashboard and can send alerts. No extensions or superuser privileges required!</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>pg_statsinfo &amp; pg_stats_reporter:</strong></p>
+<ul class="simple">
+<li><p>pg_statsinfo is a Postgres extension that collects lots of performance-relevant information inside the Postgres server which then can be aggregated by pg_stats_reporter instances which provide a web interface to the collected data. Both are FOSS software maintained by NTT.</p></li>
+</ul>
+</li>
+<li><p><strong>PGObserver:</strong></p>
+<ul class="simple">
+<li><p>PGObserver is a Python &amp; Java-based Postgres monitoring solution developed by Zalando. It was developed with a focus on stored procedure performance but extended well beyond that.</p></li>
+</ul>
+</li>
+<li><p><strong>pgCluu:</strong></p>
+<ul class="simple">
+<li><p>pgCluu is a Perl-based monitoring solution which uses psql and sar to collect information about Postgres servers and render comprehensive performance stats.</p></li>
+</ul>
+</li>
+<li><p><strong>PoWA:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PoWA is a PostgreSQL Workload Analyzer that gathers performance stats and provides real-time charts and graphs to help monitor and tune your PostgreSQL servers. It relies on extensions such as pg_stat_statements, pg_qualstats, pg_stat_kcache, pg_track_settings and HypoPG, and can help you optimize you database easily.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>OPM: Open PostgreSQL Monitoring:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Open PostgreSQL Monitoring (OPM) is a free software suite designed to help you manage your PostgreSQL servers. It’s a flexible tool that will follow the activity of each instance. It can gather stats, display dashboards and send warnings when something goes wrong. The long-term goal of the project is to provide similar features to those of Oracle Grid Control or SQL Server Management Studio.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>pgaudit:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The PostgreSQL Audit Extension (or pgaudit) provides detailed session and/or object audit logging via the standard logging facility provided by PostgreSQL. The goal of PostgreSQL Audit to provide the tools needed to produce audit logs required to pass certain government, financial, or ISO certification audits.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>CyanAudit:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Cyan Audit is a PostgreSQL utility providing comprehensive and easily-searchable logs of DML (INSERT/UPDATE/DELETE) activity in your database.</p></li>
+</ul>
+<blockquote>
+<div><p>With Cyan Audit you can:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Log any table with a PK, regardless of schema.</p></li>
+<li><p>Search logs by querying a simple view.</p></li>
+<li><p>Toggle logging on a column-by-column basis using an easy config table.</p></li>
+<li><p>Attribute every operation to a specific application user.</p></li>
+<li><p>Label any operation with a human-readable description.</p></li>
+<li><p>Back up and restore logs with confidence using supplied Perl scripts.</p></li>
+<li><p>Rotate &amp; drop old logs automatically using a supplied Perl script.</p></li>
+<li><p>Keep years of logs online comfortably with automatic archival to your cheap tablespace.</p></li>
+<li><p>Effectively “undo” any recorded transaction by playing its operations in reverse.</p></li>
+<li><p>Save time with a design focused on ease of setup and maintenance.</p></li>
+</ul>
+</div></blockquote>
+<p>Cyan Audit:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>is written entirely in SQL and PL/pgSQL (except Perl cron scripts).</p></li>
+<li><p>is Trigger-based.</p></li>
+<li><p>supports PostgreSQL 9.6 and newer.</p></li>
+<li><p>has been production tested since 2012.</p></li>
+<li><p>For installation and usage instructions please see doc/cyanaudit.md.</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+</section>
 <section id="data-types">
-<h2>Data Types:<a class="headerlink" href="#data-types" title="Link to this heading"></a></h2>
+<span id="pgdata"></span><h2>Data Types:<a class="headerlink" href="#data-types" title="Link to this heading"></a></h2>
 <ul>
 <li><p><strong>PostgreSQL has a rich set of native data types available to users.Users can add new types to PostgreSQL using the CREATE TYPE command.</strong></p>
 <blockquote>
@@ -403,10 +577,10 @@ cd /etc/systemd/system</p>
 </div></blockquote>
 </li>
 </ul>
-<section id="a-numeric-types">
-<h3>a) Numeric Types :<a class="headerlink" href="#a-numeric-types" title="Link to this heading"></a></h3>
+<section id="a-numeric-datatype">
+<h3>a) Numeric datatype:<a class="headerlink" href="#a-numeric-datatype" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Table</p></li>
+<li><p>Numeric types consist of two-, four-, and eight-byte integers, four- and eight-byte floating-point numbers, and selectable-precision decimals.</p></li>
 </ul>
 <table class="docutils align-default">
 <thead>
@@ -457,8 +631,163 @@ cd /etc/systemd/system</p>
 </tbody>
 </table>
 </section>
-<section id="b-advanced-data-tytpes">
-<h3>b) Advanced data tytpes:<a class="headerlink" href="#b-advanced-data-tytpes" title="Link to this heading"></a></h3>
+<section id="b-monetary-types">
+<h3>b) Monetary Types:<a class="headerlink" href="#b-monetary-types" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The money type stores a currency amount with a fixed fractional precision;</p></li>
+<li><p>The fractional precision is determined by the database’s lc_monetary setting. The range shown in the table assumes there are two fractional digits. Input is accepted in a variety of formats, including integer and floating-point literals, as well as typical currency formatting, such as ‘$1,000.00’. Output is generally in the latter form but depends on the locale.</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Storage Size</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>money</p></td>
+<td><p>8 bytes</p></td>
+<td><p>currency amount</p></td>
+<td><p>-92233720368547758.08 to +92233720368547758.07</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="c-character-types">
+<h3>c) Character Types:<a class="headerlink" href="#c-character-types" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>The table below lists general-purpose character types available in PostgreSQL.</p></li>
+</ul>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>character varying(n), varchar(n)</p></td>
+<td><p>variable-length with limit</p></td>
+</tr>
+<tr class="row-odd"><td><p>character(n), char(n)</p></td>
+<td><p>fixed-length, blank padded</p></td>
+</tr>
+<tr class="row-even"><td><p>text</p></td>
+<td><p>variable unlimited length</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="d-binary-data-types">
+<h3>d) Binary Data Types:<a class="headerlink" href="#d-binary-data-types" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>The bytea data type allows storage of binary strings</p></li>
+</ul>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Storage Size</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bytea</p></td>
+<td><p>1 or 4 bytes plus the actual binary string</p></td>
+<td><p>variable-length binary string</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e-date-time-types">
+<h3>e) Date/Time Types:<a class="headerlink" href="#e-date-time-types" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>PostgreSQL supports the full set of SQL date and time types,</p></li>
+<li><p>Dates are counted according to the Gregorian calendar, even in years before that calendar was introduced</p></li>
+</ul>
+</div></blockquote>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Storage Size</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Low Value</p></th>
+<th class="head"><p>High Value</p></th>
+<th class="head"><p>Resolution</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>timestamp [ (p) ] [ without</p></td>
+<td><p>8 bytes</p></td>
+<td><p>both date and time (no time zone)</p></td>
+<td><p>4713 BC</p></td>
+<td><p>294276 AD</p></td>
+<td><p>1 microsecond</p></td>
+</tr>
+<tr class="row-odd"><td><p>time zone ]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>/ 14 digits</p></td>
+</tr>
+<tr class="row-even"><td><p>timestamp [ (p) ] with time</p></td>
+<td><p>8 bytes</p></td>
+<td><p>both date and time, with time zone</p></td>
+<td><p>4713 BC</p></td>
+<td><p>294276 AD</p></td>
+<td><p>1 microsecond</p></td>
+</tr>
+<tr class="row-odd"><td><p>zone</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>/ 14 digits</p></td>
+</tr>
+<tr class="row-even"><td><p>date</p></td>
+<td><p>4 bytes</p></td>
+<td><p>date (no time of day)</p></td>
+<td><p>4713 BC</p></td>
+<td><p>5874897 AD</p></td>
+<td><p>1 Day</p></td>
+</tr>
+<tr class="row-odd"><td><p>time [ (p) ] [ without time</p></td>
+<td><p>8 bytes</p></td>
+<td><p>time of day (no date)</p></td>
+<td><p>00:00:00</p></td>
+<td><p>24:00:00</p></td>
+<td><p>1 microsecond</p></td>
+</tr>
+<tr class="row-even"><td><p>zone ]</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>/ 14 digits</p></td>
+</tr>
+<tr class="row-odd"><td><p>time [ (p) ] with time zone</p></td>
+<td><p>12 bytes</p></td>
+<td><p>times of day only, with time zone</p></td>
+<td><p>00:00:00+1459</p></td>
+<td><p>24:00:00-1459</p></td>
+<td><p>1 microsecond
+/ 14 digits</p></td>
+</tr>
+<tr class="row-even"><td><p>interval [ fields ] [ (p) ]</p></td>
+<td><p>16 bytes</p></td>
+<td><p>time interval</p></td>
+<td><p>-178000000 years</p></td>
+<td><p>178000000 years</p></td>
+<td><p>1 microsecond
+/ 14 digits</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="backup-and-recovery">
@@ -466,6 +795,12 @@ cd /etc/systemd/system</p>
 <ul class="simple" id="pgbackup">
 <li><p>step to backup on postgresql database</p></li>
 </ul>
+<section id="logical-backup">
+<h3>1) Logical backup:<a class="headerlink" href="#logical-backup" title="Link to this heading"></a></h3>
+</section>
+<section id="physical-backup">
+<h3>2) Physical backup:<a class="headerlink" href="#physical-backup" title="Link to this heading"></a></h3>
+</section>
 </section>
 </section>
 

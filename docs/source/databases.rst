@@ -1,8 +1,10 @@
+###############
 DATABASES : 
-===============
+###############
 
+=========================
 :ref:`PostgreSQL:<open>` 
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+=========================
 
 **Introduction To PostgreSQL** : 
 
@@ -79,10 +81,10 @@ DATABASES :
   * **JSON and JSONB Support:** Native storage and querying of JSON data types.
   * **Open Source and Community Support:** Active community with a wide range of extensions and plugins.
 
-PostgreSQL Installation:
---------------------------
+* **PostgreSQL Installation:**
 
-  * **Agenda:**
+
+   * **Agenda:**
 
       1. OS user & Permissions
       2. Installation Options
@@ -115,10 +117,25 @@ PostgreSQL Installation:
    
      * :ref:`Cluster-creation:<cluster-creation>`
 
+
+
+* **PostgreSQL Monitoring Tools:**
+
+     
+     * :ref:`PostgreSQl Monitor:<pgmonitor>`
+     
+
+
+* **PostgreSQL Data Types:**
+
   
-Backup and Recovry:
---------------------------
+ *  * :ref:`PostgresSQL Data types:<pgdata>`
+
+
   
+* **Backup and Recovry:**
+  
+
    * PostgreSQL supports various types of backup.
 
     
@@ -127,9 +144,9 @@ Backup and Recovry:
 
 
 
-
+==============================
 :ref:`MongoDB :<openmongo>`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==============================
 
 MongoDB is a popular NoSQL database known for its flexibility and scalability. 
 It stores data in flexible, JSON-like BSON documents. MongoDB is designed for horizontal scaling, enabling efficient handling of large amounts of data. 
@@ -138,15 +155,7 @@ With a strong community and comprehensive documentation, MongoDB is widely used 
 Keep abreast of the latest features and versions on the official MongoDB website.
 
 
-Installtion of MongoDB:
-------------------------
+* **Installtion of MongoDB:**
 
 
-:ref:`Oracle<openoracle>`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Oracle Database is a powerful relational database management system recognized for its robustness and scalability. 
-It ensures data integrity through ACID compliance and supports advanced features like stored procedures and triggers. 
-Oracle offers a wide range of data types and is known for its SQL compliance. 
-With a rich ecosystem, including Oracle Cloud, it provides comprehensive solutions for enterprise-level applications. 
-Stay informed about updates and features by referring to Oracle's official documentation.
