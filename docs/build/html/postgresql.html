@@ -63,6 +63,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#c-character-types">c) Character Types:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#d-binary-data-types">d) Binary Data Types:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#e-date-time-types">e) Date/Time Types:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#f-boolean-type">f) Boolean Type:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#g-geometric-types">g) Geometric Types:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#g-json-types">g) JSON Types:</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#backup-and-recovery">Backup and Recovery :</a><ul>
@@ -656,11 +659,9 @@ Parallel, Asynchronous WAL Push &amp; Get</p></li>
 </section>
 <section id="c-character-types">
 <h3>c) Character Types:<a class="headerlink" href="#c-character-types" title="Link to this heading"></a></h3>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>The table below lists general-purpose character types available in PostgreSQL.</p></li>
 </ul>
-</div></blockquote>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -682,11 +683,9 @@ Parallel, Asynchronous WAL Push &amp; Get</p></li>
 </section>
 <section id="d-binary-data-types">
 <h3>d) Binary Data Types:<a class="headerlink" href="#d-binary-data-types" title="Link to this heading"></a></h3>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>The bytea data type allows storage of binary strings</p></li>
 </ul>
-</div></blockquote>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -704,12 +703,10 @@ Parallel, Asynchronous WAL Push &amp; Get</p></li>
 </section>
 <section id="e-date-time-types">
 <h3>e) Date/Time Types:<a class="headerlink" href="#e-date-time-types" title="Link to this heading"></a></h3>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>PostgreSQL supports the full set of SQL date and time types,</p></li>
 <li><p>Dates are counted according to the Gregorian calendar, even in years before that calendar was introduced</p></li>
 </ul>
-</div></blockquote>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
@@ -785,6 +782,303 @@ Parallel, Asynchronous WAL Push &amp; Get</p></li>
 <td><p>178000000 years</p></td>
 <td><p>1 microsecond
 / 14 digits</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="f-boolean-type">
+<h3>f) Boolean Type:<a class="headerlink" href="#f-boolean-type" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>PostgreSQL provides the standard SQL type boolean;</p></li>
+<li><p>The boolean type can have several states: “true”, “false”, and a third state, “unknown”, which is represented by the SQL null value.</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Storage Size</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>boolean</p></td>
+<td><p>1 bytes</p></td>
+<td><p>state of true or false</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Valid literal values for the “true” state are:
+TRUE, ‘t’, ‘true’, ‘y’,’yes’,’on’,’1’</p></li>
+<li><p>For the “false” state, the following values can be used:
+FALSE, ‘f’, ‘false’, ‘n’, ‘no’, ‘off’, ‘0’</p></li>
+</ul>
+<p>Leading or trailing whitespace is ignored, and case does not matter. The key words TRUE and FALSE are the preferred (SQL-compliant) usage.</p>
+<p><strong>Enumerated Types:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Enumerated (enum) types are data types that comprise a static, ordered set of values. They are equivalent to the enum types supported in a number of programming languages.</p></li>
+<li><p>An example of an enum type might be the days of the week, or a set of status values for a piece of data.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CREATE<span class="w"> </span>TYPE<span class="w"> </span>mood<span class="w"> </span>AS<span class="w"> </span>ENUM<span class="w"> </span><span class="o">(</span><span class="s1">&#39;sad&#39;</span>,<span class="w"> </span><span class="s1">&#39;ok&#39;</span>,<span class="w"> </span><span class="s1">&#39;happy&#39;</span><span class="o">)</span><span class="p">;</span>
+CREATE<span class="w"> </span>TABLE<span class="w"> </span>person<span class="w"> </span><span class="o">(</span>
+name<span class="w"> </span>text,
+current_mood<span class="w"> </span>mood
+<span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>INSERT<span class="w"> </span>INTO<span class="w"> </span>person<span class="w"> </span>VALUES<span class="w"> </span><span class="o">(</span><span class="s1">&#39;Moe&#39;</span>,<span class="w"> </span><span class="s1">&#39;happy&#39;</span><span class="o">)</span><span class="p">;</span>
+SELECT<span class="w"> </span>*<span class="w"> </span>FROM<span class="w"> </span>person<span class="w"> </span>WHERE<span class="w"> </span><span class="nv">current_mood</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;happy&#39;</span><span class="p">;</span>
+name<span class="w"> </span><span class="p">|</span><span class="w"> </span>current_mood
+------+--------------
+Moe<span class="w">  </span><span class="p">|</span><span class="w"> </span>happy
+<span class="o">(</span><span class="m">1</span><span class="w"> </span>row<span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="g-geometric-types">
+<h3>g) Geometric Types:<a class="headerlink" href="#g-geometric-types" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Geometric data types represent two-dimensional spatial objects</p></li>
+<li><p>A rich set of functions and operators is available to perform various geometric operations such as scaling, translation, rotation, and determining intersections</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Storage Size</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Representation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>point</p></td>
+<td><p>16 bytes</p></td>
+<td><p>Point on a plane</p></td>
+<td><p>(x,y)</p></td>
+</tr>
+<tr class="row-odd"><td><p>line</p></td>
+<td><p>32 bytes</p></td>
+<td><p>Infinite line</p></td>
+<td><p>{A,B,C}</p></td>
+</tr>
+<tr class="row-even"><td><p>lseg</p></td>
+<td><p>32 bytes</p></td>
+<td><p>Finite line segment</p></td>
+<td><p>((x1,y1),(x2,y2))</p></td>
+</tr>
+<tr class="row-odd"><td><p>box</p></td>
+<td><p>32 bytes</p></td>
+<td><p>Rectangular box</p></td>
+<td><p>((x1,y1),(x2,y2))</p></td>
+</tr>
+<tr class="row-even"><td><p>path</p></td>
+<td><p>16+16n bytes</p></td>
+<td><p>Closed path (similar to polygon)</p></td>
+<td><p>((x1,y1),…)</p></td>
+</tr>
+<tr class="row-odd"><td><p>path</p></td>
+<td><p>16+16n bytes</p></td>
+<td><p>Open path</p></td>
+<td><p>[(x1,y1),…]</p></td>
+</tr>
+<tr class="row-even"><td><p>polygon</p></td>
+<td><p>40+16n bytes</p></td>
+<td><p>Polygon (similar to closed path)</p></td>
+<td><p>((x1,y1),…)</p></td>
+</tr>
+<tr class="row-odd"><td><p>circle</p></td>
+<td><p>24 bytes</p></td>
+<td><p>Circle</p></td>
+<td><p>&lt;(x,y),r&gt; (center point and radius)</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Network Address Types:</strong></p>
+<ul class="simple">
+<li><p>PostgreSQL offers data types to store IPv4, IPv6, and MAC addresses.</p></li>
+<li><p>It is better to use these types instead of plain text types to store network addresses, because these types offer input error checking and specialized operators and functions</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Storage Size</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>cidr</p></td>
+<td><p>7 or 19 bytes</p></td>
+<td><p>IPv4 and IPv6 networks</p></td>
+</tr>
+<tr class="row-odd"><td><p>inet</p></td>
+<td><p>7 or 19 bytes</p></td>
+<td><p>IPv4 and IPv6 hosts and networks</p></td>
+</tr>
+<tr class="row-even"><td><p>macaddr</p></td>
+<td><p>6 bytes</p></td>
+<td><p>MAC addresses</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bit String Type:</strong></p>
+<ul class="simple">
+<li><p>Bit String Types are used to store bit masks. They are either 0 or 1. There are two SQL bit types: bit(n) and bit varying(n), where n is a positive integer.</p></li>
+</ul>
+<p><strong>Text Search Types:</strong></p>
+<ul class="simple">
+<li><p>PostgreSQL provides two data types that are designed to support full text search, which is the activity of searching through a collection of natural-language documents to locate those that best match a query.</p></li>
+<li><p>The tsvector type represents a document in a form optimized for text search;</p></li>
+<li><p>the tsquery type similarly represents a text query.</p></li>
+</ul>
+<p><strong>UUID Types:</strong></p>
+<ul class="simple">
+<li><p>A UUID (Universally Unique Identifiers) is written as a sequence of lower-case hexadecimal digits,</p></li>
+<li><p>In several groups separated by hyphens, specifically a group of 8 digits followed by three groups of 4 digits followed by a group of 12 digits, for a total of 32 digits representing the 128 bits.</p></li>
+</ul>
+<p><strong>XML Types</strong></p>
+<ul class="simple">
+<li><p>The xml data type can be used to store XML data. Its advantage over storing XML data in a text field is that it checks the input values for well-formedness,</p></li>
+<li><p>There are support functions to perform type-safe operations on it;.</p></li>
+<li><p>Use of this data type requires the installation to have been built with configure –with-libxml.</p></li>
+</ul>
+</section>
+<section id="g-json-types">
+<h3>g) JSON Types:<a class="headerlink" href="#g-json-types" title="Link to this heading"></a></h3>
+<ul>
+<li><p>JSON data types are for storing JSON (JavaScript Object Notation) data, as specified in RFC 7159.</p></li>
+<li><p>Such data can also be stored as text, but the JSON data types have the advantage of enforcing that each stored value is valid according to the JSON rules.</p></li>
+<li><p>There are also assorted JSON-specific functions and operators available for data stored in these data types</p>
+<blockquote>
+<div><p>JSON primitive types and corresponding PostgreSQL types</p>
+</div></blockquote>
+</li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>JSON primitive type</p></th>
+<th class="head"><p>PostgreSQL type</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>string</p></td>
+<td><p>text</p></td>
+<td><p>u0000 is disallowed, as are non-ASCII Unicode escapes if database encoding is not UTF8</p></td>
+</tr>
+<tr class="row-odd"><td><p>number</p></td>
+<td><p>numeric</p></td>
+<td><p>NaN and infinity values are disallowed</p></td>
+</tr>
+<tr class="row-even"><td><p>boolean</p></td>
+<td><p>boolean</p></td>
+<td><p>Only lowercase true and false spellings are accepted</p></td>
+</tr>
+<tr class="row-odd"><td><p>null</p></td>
+<td><p>(none)</p></td>
+<td><p>SQL NULL is a different concept</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Arrays Types:</strong></p>
+<ul class="simple">
+<li><p>PostgreSQL allows columns of a table to be defined as variable-length multidimensional arrays. Arrays of any built-in or user-defined base type, enum type, or composite type can be created. Arrays of domains are not yet supported.</p></li>
+</ul>
+<p><strong>Composite Types:</strong></p>
+<ul class="simple">
+<li><p>A composite type represents the structure of a row or record; it is essentially just a list of field names and their data types.</p></li>
+<li><p>PostgreSQL allows composite types to be used in many of the same ways that simple types can be used.</p></li>
+<li><p>For example, a column of a table can be declared to be of a composite type.</p></li>
+</ul>
+<p><strong>Range Types:</strong></p>
+<ul>
+<li><p>Range types are data types representing a range of values of some element type (called the range’s subtype). For instance, ranges of timestamp might be used to represent the ranges of time that a meeting room is reserved. In this case the data type is tsrange (short for “timestamp range”), and timestamp is the subtype. The subtype must have a total order so that it is well-defined whether element values are within, before, or after a range of values.</p></li>
+<li><p>Range types are useful because they represent many element values in a single range value, and because concepts such as overlapping ranges can be expressed clearly.</p></li>
+<li><p>The use of time and date ranges for scheduling purposes is the clearest example; but price ranges, measurement ranges from an instrument, and so forth can also be useful.</p>
+<p><strong>PostgreSQL comes with the following built-in range types:</strong></p>
+<blockquote>
+<div><p>int4range — Range of integer
+int8range — Range of bigint
+numrange — Range of numeric
+tsrange — Range of timestamp without time zone
+tstzrange — Range of timestamp with time zone
+daterange — Range of date</p>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Object Identifier Types:</strong></p>
+<ul class="simple">
+<li><p>Object identifiers (OIDs) are used internally by PostgreSQL as primary keys for various system tables.</p></li>
+<li><p>OIDs are not added to user-created tables, unless WITH OIDS is specified when the table is created, or the default_with_oids configuration variable is enabled.</p></li>
+<li><p>Type oid represents an object identifier. There are also several alias types for oid: regproc, regprocedure, regoper, regoperator, regclass, regtype, regrole, regnamespace, regconfig, and regdictionary</p></li>
+</ul>
+<p><strong>pg_lsn Type:</strong></p>
+<ul class="simple">
+<li><p>The pg_lsn data type can be used to store LSN (Log Sequence Number) data which is a pointer to a location in the XLOG.</p></li>
+<li><p>This type is a representation of XLogRecPtr and an internal system type of PostgreSQL.</p></li>
+<li><p>Internally, an LSN is a 64-bit integer, representing a byte position in the write-ahead log stream. It is printed as two hexadecimal numbers of up to 8 digits each, separated by a slash; for example, 16/B374D848. The pg_lsn type supports the standard comparison operators, like = and &gt;. Two LSNs can be subtracted using the - operator; the result is the number of bytes separating those write-ahead log positions.</p></li>
+</ul>
+<p><strong>Pseudo-Types:</strong></p>
+<ul class="simple">
+<li><p>The PostgreSQL type system contains a number of special-purpose entries that are collectively called pseudo-types.</p></li>
+<li><p>A pseudo-type cannot be used as a column data type, but it can be used to declare a function’s argument or result type. Each of the available pseudo-types is useful in situations where a function’s behavior does not correspond to simply taking or returning a value of a specific SQL data type</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>any</p></td>
+<td><p>Indicates that a function accepts any input data type.</p></td>
+</tr>
+<tr class="row-odd"><td><p>anyelement</p></td>
+<td><p>Indicates that a function accepts any data type anyarray</p></td>
+</tr>
+<tr class="row-even"><td><p>anynonarray</p></td>
+<td><p>Indicates that a function accepts any non-array data type</p></td>
+</tr>
+<tr class="row-odd"><td><p>anyenum</p></td>
+<td><p>Indicates that a function accepts any enum data type</p></td>
+</tr>
+<tr class="row-even"><td><p>anyrange</p></td>
+<td><p>Indicates that a function accepts any range data type</p></td>
+</tr>
+<tr class="row-odd"><td><p>cstring</p></td>
+<td><p>Indicates that a function accepts or returns a null-terminated C string.</p></td>
+</tr>
+<tr class="row-even"><td><p>internal</p></td>
+<td><p>Indicates that a function accepts or returns a server-internal data type.</p></td>
+</tr>
+<tr class="row-odd"><td><p>language_handler</p></td>
+<td><p>A procedural language call handler is declared to return language_handler.</p></td>
+</tr>
+<tr class="row-even"><td><p>fdw_handler</p></td>
+<td><p>A foreign-data wrapper handler is declared to return fdw_handler.</p></td>
+</tr>
+<tr class="row-odd"><td><p>tsm_handler</p></td>
+<td><p>A tablesample method handler is declared to return tsm_handler.</p></td>
+</tr>
+<tr class="row-even"><td><p>record</p></td>
+<td><p>Identifies a function taking or returning an unspecified row type.</p></td>
+</tr>
+<tr class="row-odd"><td><p>trigger</p></td>
+<td><p>A trigger function is declared to return trigger.</p></td>
+</tr>
+<tr class="row-even"><td><p>event_trigger</p></td>
+<td><p>An event trigger function is declared to return event_trigger.</p></td>
+</tr>
+<tr class="row-odd"><td><p>pg_ddl_command</p></td>
+<td><p>Identifies a representation of DDL commands that is available to event triggers.</p></td>
+</tr>
+<tr class="row-even"><td><p>void</p></td>
+<td><p>Indicates that a function returns no value.</p></td>
+</tr>
+<tr class="row-odd"><td><p>opaque</p></td>
+<td><p>An obsolete type name that formerly served all the above purposes.</p></td>
 </tr>
 </tbody>
 </table>

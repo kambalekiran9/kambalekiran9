@@ -12,21 +12,27 @@ I thrive on solving database challenges and streamlining operations. My journey 
    databases
 
 
+
 .. toctree::
    :maxdepth: 10
    :caption: Postgresql
-   
+
    postgresql
-   
+
+
+
+.. toctree::
+   :maxdepth: 10
+   :caption: SQL-langauge
+
+   sql
+
+
 
 .. toctree::
    :maxdepth: 10
    :caption: MongoDB
-  
+
    mongodb
-
-
-
-
 
 

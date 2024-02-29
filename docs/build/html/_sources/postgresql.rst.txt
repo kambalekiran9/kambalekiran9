@@ -555,7 +555,7 @@ money      8 bytes         currency amount                         -922337203685
 c) Character Types:
 -----------------------
  
-  * The table below lists general-purpose character types available in PostgreSQL.
+* The table below lists general-purpose character types available in PostgreSQL.
 
 
 ================================      ================================
@@ -573,7 +573,7 @@ text                                  variable unlimited length
 d) Binary Data Types:
 -------------------------
 
-   * The bytea data type allows storage of binary strings
+* The bytea data type allows storage of binary strings
 
 
 
@@ -589,8 +589,8 @@ e) Date/Time Types:
 -------------------------
    
 
-   * PostgreSQL supports the full set of SQL date and time types, 
-   * Dates are counted according to the Gregorian calendar, even in years before that calendar was introduced  
+* PostgreSQL supports the full set of SQL date and time types, 
+* Dates are counted according to the Gregorian calendar, even in years before that calendar was introduced  
 
 
 
@@ -614,6 +614,256 @@ time [ (p) ] with time zone     12 bytes       times of day only, with time zone
 interval [ fields ] [ (p) ]     16 bytes       time interval                        -178000000 years    178000000 years      1 microsecond
                                                                                                                              / 14 digits
 ===========================    ============    ===================================  ================    ================    ===============
+
+
+
+----------------
+f) Boolean Type:
+----------------
+
+* PostgreSQL provides the standard SQL type boolean; 
+* The boolean type can have several states: "true", "false", and a third state, "unknown", which is represented by the SQL null value.
+
+
+=========    ===============     ==========================
+Name         Storage Size        Description
+=========    ===============     ==========================
+boolean      1 bytes             state of true or false
+=========    ===============     ==========================
+
+
+
+* Valid literal values for the "true" state are:
+  TRUE, 't', 'true', 'y','yes','on','1'
+    
+* For the "false" state, the following values can be used:
+  FALSE, 'f', 'false', 'n', 'no', 'off', '0'
+
+    
+Leading or trailing whitespace is ignored, and case does not matter. The key words TRUE and FALSE are the preferred (SQL-compliant) usage.
+
+
+**Enumerated Types:**
+
+   * Enumerated (enum) types are data types that comprise a static, ordered set of values. They are equivalent to the enum types supported in a number of programming languages. 
+   * An example of an enum type might be the days of the week, or a set of status values for a piece of data.    
+
+**Example**
+
+   
+   .. code-block:: bash 
+   
+
+     CREATE TYPE mood AS ENUM ('sad', 'ok', 'happy');
+     CREATE TABLE person (
+     name text,
+     current_mood mood
+     );
+
+
+   .. code-block:: bash
+   
+   
+     INSERT INTO person VALUES ('Moe', 'happy');
+     SELECT * FROM person WHERE current_mood = 'happy';
+     name | current_mood 
+     ------+--------------
+     Moe  | happy
+     (1 row)
+
+
+----------------------
+g) Geometric Types:
+----------------------
+    
+* Geometric data types represent two-dimensional spatial objects
+* A rich set of functions and operators is available to perform various geometric operations such as scaling, translation, rotation, and determining intersections
+
+
+=========    ===============     ===================================     =====================================
+Name         Storage Size        Description                             Representation
+=========    ===============     ===================================     =====================================
+point        16 bytes            Point on a plane                        (x,y)
+
+line         32 bytes            Infinite line                           {A,B,C}
+
+lseg         32 bytes            Finite line segment                     ((x1,y1),(x2,y2))
+
+box          32 bytes            Rectangular box                         ((x1,y1),(x2,y2))
+
+path         16+16n bytes        Closed path (similar to polygon)        ((x1,y1),...)
+
+path         16+16n bytes        Open path                               [(x1,y1),...]
+ 
+polygon      40+16n bytes        Polygon (similar to closed path)        ((x1,y1),...) 
+ 
+circle       24 bytes            Circle                                  <(x,y),r> (center point and radius)
+=========    ===============     ===================================     =====================================
+
+
+**Network Address Types:**
+
+* PostgreSQL offers data types to store IPv4, IPv6, and MAC addresses. 
+* It is better to use these types instead of plain text types to store network addresses, because these types offer input error checking and specialized operators and functions
+
+
+=========     ===============     ===================================   
+Name          Storage Size        Description                           
+=========     ===============     ===================================  
+cidr          7 or 19 bytes       IPv4 and IPv6 networks
+
+inet          7 or 19 bytes       IPv4 and IPv6 hosts and networks
+
+macaddr       6 bytes             MAC addresses
+=========     ===============     ===================================                                     
+
+
+
+**Bit String Type:**
+
+* Bit String Types are used to store bit masks. They are either 0 or 1. There are two SQL bit types: bit(n) and bit varying(n), where n is a positive integer.
+
+
+**Text Search Types:**
+
+* PostgreSQL provides two data types that are designed to support full text search, which is the activity of searching through a collection of natural-language documents to locate those that best match a query. 
+* The tsvector type represents a document in a form optimized for text search; 
+* the tsquery type similarly represents a text query. 
+
+
+**UUID Types:**
+
+* A UUID (Universally Unique Identifiers) is written as a sequence of lower-case hexadecimal digits,
+* In several groups separated by hyphens, specifically a group of 8 digits followed by three groups of 4 digits followed by a group of 12 digits, for a total of 32 digits representing the 128 bits.
+
+
+**XML Types**
+
+* The xml data type can be used to store XML data. Its advantage over storing XML data in a text field is that it checks the input values for well-formedness, 
+* There are support functions to perform type-safe operations on it;. 
+* Use of this data type requires the installation to have been built with configure --with-libxml.
+
+
+
+
+---------------
+g) JSON Types:
+---------------
+
+
+* JSON data types are for storing JSON (JavaScript Object Notation) data, as specified in RFC 7159. 
+* Such data can also be stored as text, but the JSON data types have the advantage of enforcing that each stored value is valid according to the JSON rules. 
+* There are also assorted JSON-specific functions and operators available for data stored in these data types
+
+   
+   JSON primitive types and corresponding PostgreSQL types
+
+
+====================     =================     ===========================================================================================
+JSON primitive type      PostgreSQL type       Notes
+====================     =================     ===========================================================================================
+string                   text                  \u0000 is disallowed, as are non-ASCII Unicode escapes if database encoding is not UTF8
+
+number                   numeric               NaN and infinity values are disallowed
+
+boolean                  boolean               Only lowercase true and false spellings are accepted
+
+null                     (none)                SQL NULL is a different concept
+====================     =================     ===========================================================================================
+
+
+**Arrays Types:**
+
+* PostgreSQL allows columns of a table to be defined as variable-length multidimensional arrays. Arrays of any built-in or user-defined base type, enum type, or composite type can be created. Arrays of domains are not yet supported.
+
+
+**Composite Types:**
+
+
+* A composite type represents the structure of a row or record; it is essentially just a list of field names and their data types.
+* PostgreSQL allows composite types to be used in many of the same ways that simple types can be used. 
+* For example, a column of a table can be declared to be of a composite type.
+
+
+**Range Types:**
+
+* Range types are data types representing a range of values of some element type (called the range's subtype). For instance, ranges of timestamp might be used to represent the ranges of time that a meeting room is reserved. In this case the data type is tsrange (short for "timestamp range"), and timestamp is the subtype. The subtype must have a total order so that it is well-defined whether element values are within, before, or after a range of values.
+* Range types are useful because they represent many element values in a single range value, and because concepts such as overlapping ranges can be expressed clearly. 
+* The use of time and date ranges for scheduling purposes is the clearest example; but price ranges, measurement ranges from an instrument, and so forth can also be useful.
+
+  **PostgreSQL comes with the following built-in range types:**
+    
+    int4range — Range of integer
+    int8range — Range of bigint
+    numrange — Range of numeric
+    tsrange — Range of timestamp without time zone
+    tstzrange — Range of timestamp with time zone
+    daterange — Range of date
+
+
+**Object Identifier Types:**
+
+* Object identifiers (OIDs) are used internally by PostgreSQL as primary keys for various system tables. 
+* OIDs are not added to user-created tables, unless WITH OIDS is specified when the table is created, or the default_with_oids configuration variable is enabled. 
+* Type oid represents an object identifier. There are also several alias types for oid: regproc, regprocedure, regoper, regoperator, regclass, regtype, regrole, regnamespace, regconfig, and regdictionary
+
+
+**pg_lsn Type:**
+
+* The pg_lsn data type can be used to store LSN (Log Sequence Number) data which is a pointer to a location in the XLOG. 
+* This type is a representation of XLogRecPtr and an internal system type of PostgreSQL.
+* Internally, an LSN is a 64-bit integer, representing a byte position in the write-ahead log stream. It is printed as two hexadecimal numbers of up to 8 digits each, separated by a slash; for example, 16/B374D848. The pg_lsn type supports the standard comparison operators, like = and >. Two LSNs can be subtracted using the - operator; the result is the number of bytes separating those write-ahead log positions.
+
+
+**Pseudo-Types:**
+
+* The PostgreSQL type system contains a number of special-purpose entries that are collectively called pseudo-types. 
+* A pseudo-type cannot be used as a column data type, but it can be used to declare a function's argument or result type. Each of the available pseudo-types is useful in situations where a function's behavior does not correspond to simply taking or returning a value of a specific SQL data type
+
+
+=====================     ===================================================================================
+Name                      Description
+=====================     ===================================================================================
+any                       Indicates that a function accepts any input data type.
+
+anyelement                Indicates that a function accepts any data type anyarray      
+                             
+anynonarray               Indicates that a function accepts any non-array data type 
+
+anyenum                   Indicates that a function accepts any enum data type 
+
+anyrange                  Indicates that a function accepts any range data type 
+
+cstring                   Indicates that a function accepts or returns a null-terminated C string.
+
+internal                  Indicates that a function accepts or returns a server-internal data type.
+
+language_handler          A procedural language call handler is declared to return language_handler. 
+
+fdw_handler               A foreign-data wrapper handler is declared to return fdw_handler.
+
+tsm_handler               A tablesample method handler is declared to return tsm_handler.
+
+record                    Identifies a function taking or returning an unspecified row type.
+
+trigger                   A trigger function is declared to return trigger.
+
+event_trigger             An event trigger function is declared to return event_trigger.
+
+pg_ddl_command            Identifies a representation of DDL commands that is available to event triggers.
+
+void                      Indicates that a function returns no value.
+
+opaque                    An obsolete type name that formerly served all the above purposes.
+=====================     ===================================================================================
+
+
+
+
+
+
+
+
 
 
 

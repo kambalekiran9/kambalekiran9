@@ -129,7 +129,7 @@ DATABASES :
 * **PostgreSQL Data Types:**
 
   
- *  * :ref:`PostgresSQL Data types:<pgdata>`
+   * :ref:`PostgresSQL Data types:<pgdata>`
 
 
   
@@ -140,13 +140,85 @@ DATABASES :
 
     
      * :ref:`PostgreSQL-Backup:<pgbackup>`
+
+
  
+==================================
+:ref:`Database Languages:<sql>`
+==================================
+
+* **Data definition language (DDL):-** Data definition language (DDL) creates the framework of the
+   database by specifying the database schema, which is the structure that represents the
+   organization of data. Its common uses include the creation and alteration of tables, files, indexes
+   and columns within the database.
+
+
+ * Here a list of :ref:`DDL:<ddl>` statements:
+     
+   CREATE,ALTER,DROP,RENAME,TRUNCATE.
+
+
+* **Data manipulation language (DML):-** Data manipulation language (DML) provides operations that
+   handle user requests, offering a way to access and manipulate the data that users store within a
+   database. Its common functions include inserting, updating and retrieving data from the database.
+
+
+ * Here's a list of :ref:`DML<dml>` statements:
+   
+   INSERT,UPDATE,DELETE,SELECT:
+
+
+* **Data control language (DCL):-** Data control language (DCL) controls access to the data that users
+   store within a database. Essentially, this language controls the rights and permissions of the database
+   system. It allows users to grant or revoke privileges to the database.
+
+
+ * Here's a list of :ref:`DCL<dcl>:` statements:
+  
+   GRANT,REVOKE
+
+
+* **Transaction control language (TCL):-** Transaction control language (TCL) manages the transactions
+   within a database.Transactions group a set of related tasks into a single, executable task. All the tasks
+   must succeed in order for the transaction to work.
+
+
+ * Here's a list of :ref:`TCL<tcl>:` statements:
+
+  COMMIT: Carries out a transaction
+  ROLLBACK: Restores a transaction if any tasks fail to execute
+  SAVEPOINT: Sets a point in a transaction to save
 
 
 
-==============================
+* **:ref:`Sequences<sequence>` :**
+
+
+* CREATE SEQUENCE creates a new sequence number generator. This involves creating
+  and initializing a new special single-row table with the name. The generator will be
+  owned by the user issuing the command.
+ 
+  * Sequence/ Serial Function..
+  * nextval() - Advance sequence and return new value
+  * currval() - Most recently used value for specific sequence
+  * setval() - Set next returned value for a sequence
+  
+   * Ex.
+   
+   testdb=#INSERT INTO student VALUES (nextval('demo_seqn'), 'saurabh');
+   INSERTO I
+
+**Sequences are used to generate unique values for insertion of new records.**
+
+
+
+
+
+
+
+==================================
 :ref:`MongoDB :<openmongo>`
-==============================
+==================================
 
 MongoDB is a popular NoSQL database known for its flexibility and scalability. 
 It stores data in flexible, JSON-like BSON documents. MongoDB is designed for horizontal scaling, enabling efficient handling of large amounts of data. 
@@ -155,7 +227,16 @@ With a strong community and comprehensive documentation, MongoDB is widely used 
 Keep abreast of the latest features and versions on the official MongoDB website.
 
 
-* **Installtion of MongoDB:**
+* **Learning mongodb:**
+
+
+
+
+
+
+
+
+
 
 
 

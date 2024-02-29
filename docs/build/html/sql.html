@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting started with SQL : &mdash; dba-tutorial-By Kiran Kambale 2.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=51b770b3"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MongoDB Tutorial :" href="mongodb.html" />
+    <link rel="prev" title="Getting started with PostgreSQL :" href="postgresql.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            dba-tutorial-By Kiran Kambale
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="databases.html">DATABASES :</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Postgresql</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">Getting started with PostgreSQL  :</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SQL-langauge</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started with SQL  :</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-definition-language-ddl">Data definition language (DDL):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-manupulation-language-insert-dml">Data Manupulation Language- Insert (DML):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-control-language-dcl">Data control language (DCL):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transaction-control-language-tcl">Transaction control language (TCL):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sequence">sequence:</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MongoDB</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mongodb.html">MongoDB Tutorial :</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">dba-tutorial-By Kiran Kambale</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting started with SQL  :</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/sql.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started-with-sql">
+<span id="sql"></span><h1>Getting started with SQL  :<a class="headerlink" href="#getting-started-with-sql" title="Link to this heading"></a></h1>
+<section id="data-definition-language-ddl">
+<span id="ddl"></span><h2>Data definition language (DDL):<a class="headerlink" href="#data-definition-language-ddl" title="Link to this heading"></a></h2>
+<ul>
+<li><p><strong>1) Create Table statement:</strong></p></li>
+<li><p>A relational database consists of multiple related tables. A table consists of rows and columns.
+Tables allow you to store structured data like customers, products, employees, etc.</p></li>
+<li><p>To describe a table you may use command like d table_name</p></li>
+<li><p>To create a new table, you use the CREATE TABLE statement. The following illustrates the basic
+syntax of the CREATE TABLE statement:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>create<span class="w"> </span>table<span class="w"> </span>employee
+<span class="o">(</span>id<span class="w"> </span>int<span class="w"> </span>primary<span class="w"> </span>key<span class="w"> </span>not<span class="w"> </span>null,
+name<span class="w"> </span>text<span class="w"> </span>not<span class="w"> </span>null,
+age<span class="w"> </span>int<span class="w"> </span>not<span class="w"> </span>null,
+address<span class="w"> </span>char<span class="o">(</span><span class="m">50</span><span class="o">)</span>,
+salary<span class="w"> </span>real<span class="w"> </span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<img alt="_images/ddl.png" src="_images/ddl.png" />
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Alter Table Statement</strong></p>
+<ul>
+<li><p>ALTER TABLE changes the definition of an existing table.</p></li>
+<li><p>The following illustrates the basic syntax of the ALTER TABLE statement:
+ALTER TABLE table_name action;</p></li>
+<li><p><strong>PostgreSQL provides you with many actions:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Add a column</p></li>
+<li><p>Drop a column</p></li>
+<li><p>Change the data type of a column</p></li>
+<li><p>Rename a column</p></li>
+<li><p>Add a constraint to a column.</p></li>
+<li><p>Rename a table</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Example:-</strong></p>
+<ul>
+<li><p>In this example we have added a column name age in to employee table.</p>
+<blockquote>
+<div><p>$ alter table employee add column age int;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">postgres</span><span class="o">=</span><span class="c1"># alter table employee add column pincode  int;</span>
+ALTER<span class="w"> </span>TABLE
+<span class="nv">postgres</span><span class="o">=</span><span class="c1"># select * from employee ;</span>
+id<span class="w"> </span><span class="p">|</span><span class="w"> </span>name<span class="w"> </span><span class="p">|</span><span class="w"> </span>age<span class="w"> </span><span class="p">|</span><span class="w"> </span>address<span class="w"> </span><span class="p">|</span><span class="w"> </span>salary<span class="w"> </span><span class="p">|</span><span class="w"> </span>pincode
+----+------+-----+---------+--------+---------
+<span class="o">(</span><span class="m">0</span><span class="w"> </span>rows<span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="data-manupulation-language-insert-dml">
+<span id="dml"></span><h2>Data Manupulation Language- Insert (DML):<a class="headerlink" href="#data-manupulation-language-insert-dml" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The PostgreSQL INSERT statement allows you to insert a new row into a table.</p></li>
+<li><dl class="simple">
+<dt>The following illustrates the most basic syntax of the INSERT statement:</dt><dd><p>INSERT INTO table_name(column1, column2, …)
+VALUES (value1, value2, …);</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>In this syntax:</strong></p>
+<ol class="arabic simple">
+<li><p>specify the name of the table (table_name) that you want to insert data after the INSERT INTO keywords and
+a list of comma-separated columns (colum1, column2, ….).</p></li>
+<li><p>supply a list of comma-separated values in a parentheses (value1, value2, …) after the VALUES keyword.
+The columns and values in the column and value lists must be in the same order.</p></li>
+</ol>
+<p><strong>Example:-</strong></p>
+<p>postgres=#insert into employee (id,name,age,address,salary)values (10,’smith’,30,’Babglore’,50000);</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">postgres</span><span class="o">=</span><span class="c1"># insert into employee (id,name,age,address,salary)values (10,&#39;smith&#39;,30,&#39;Babglore&#39;,50000);</span>
+INSERT<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul>
+<li><p><strong>DML-Update:</strong></p></li>
+<li><p>UPDATE changes the values of the specified columns in all rows that satisfy the condition. Only the
+columns to be modified need be mentioned in the SET clause; columns not explicitly modified retain
+their previous values.</p></li>
+<li><p>The following illustrates the syntax of the UPDATE statement:</p>
+<p>UPDATE table_name
+SET column1 = value1,
+column2 = value2,
+…
+WHERE condition;</p>
+</li>
+<li><p><strong>DML -Update:</strong></p></li>
+</ul>
+<p><strong>Example:-</strong></p>
+<ul>
+<li><p>In this example we have updated salary to 10000 where id no. is 2</p>
+<p>testdb=# update employee1 set salary = 10000 where id=2;</p>
+</li>
+<li><p><strong>DML -Delete:</strong></p></li>
+<li><p>The PostgreSQL DELETE statement allows you to delete one or more rows from a table.</p></li>
+<li><p>The following shows basic syntax of the DELETE statement:</p>
+<blockquote>
+<div><p>DELETE FROM table_name
+WHERE condition;</p>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>In this syntax:</strong></p>
+<ul class="simple">
+<li><p>First, specify the name of the table from which you want to delete data after the DELETE FROM
+keywords.</p></li>
+<li><p>Second, use a condition in the WHERE clause to specify which rows from the table to delete.</p></li>
+<li><p>Note that the DELETE statement only removes data from a table. It doesn’t modify the structure of the
+table.</p></li>
+</ul>
+<p><strong>Example:-</strong></p>
+<ul>
+<li><p>In this example we have deleted a record where id was 6.</p>
+<blockquote>
+<div><p>test=#delete from employee1 where id=6;</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="data-control-language-dcl">
+<span id="dcl"></span><h2>Data control language (DCL):<a class="headerlink" href="#data-control-language-dcl" title="Link to this heading"></a></h2>
+</section>
+<section id="transaction-control-language-tcl">
+<span id="tcl"></span><h2>Transaction control language (TCL):<a class="headerlink" href="#transaction-control-language-tcl" title="Link to this heading"></a></h2>
+<ul>
+<li><p><strong>TCL begin:</strong></p></li>
+<li><p><strong>In TCL transaction start with ‘begin’ then we perform tasks.</strong></p>
+<blockquote>
+<div><p>testdb=# begin ;
+BEGIN
+testdb=# SELECT * FROM emp;</p>
+</div></blockquote>
+</li>
+<li><p>Here we will insert a new recod in to the table</p>
+<blockquote>
+<div><p>testdb=# insert into emp (name,gender,age) values (‘Rahul’,’M’,27);
+testdb=# SELECT * FROM emp;</p>
+</div></blockquote>
+</li>
+<li><p><strong>TCL Savepoint:</strong></p></li>
+<li><p>SAVEPOINT is a boundary defined within a transaction that allows for a partial
+rollback.</p></li>
+<li><p>It gives the user the ability to roll the transaction back to a certain point without rolling
+back the entire transaction.</p>
+<ul class="simple">
+<li><p>testdb=# savepoint my_savepoint;</p></li>
+</ul>
+</li>
+<li><p><strong>TCL Rollback and commit:</strong></p></li>
+</ul>
+<p><strong>ROLLBACK:-</strong></p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><p>As the name suggests, ROLLBACK undoes the changes that were issued in the transaction block
+before it.</p></li>
+</ul>
+<p><strong>Example:-</strong></p>
+<ul class="simple">
+<li><p>testdb=# insert into emp (name,gender,age) values (‘Rohit’,’M’,26);
+INSERT 0 1</p></li>
+<li><p>testdb=# SELECT * FROM emp;</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Now use rollback to mu_savepoint it will delete the unsaved row from table.</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>testdb=# rollback to my_savepoint;</p></li>
+<li><p>ROLLBACK</p></li>
+</ul>
+<p><strong>Commit:-</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the COMMIT keyword saves changes to the database.</p></li>
+<li><p>testdb=# commit;
+COMMIT</p></li>
+<li><p>testdb=# SELECT * FROM emp;</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="sequence">
+<span id="id1"></span><h2>sequence:<a class="headerlink" href="#sequence" title="Link to this heading"></a></h2>
+<ul>
+<li><p>CREATE SEQUENCE creates a new sequence number generator. This involves creating
+and initializing a new special single-row table with the name. The generator will be
+owned by the user issuing the command.</p>
+<ul class="simple">
+<li><p>Sequence/ Serial Function..</p></li>
+<li><p>nextval() - Advance sequence and return new value</p></li>
+<li><p>currval() - Most recently used value for specific sequence</p></li>
+<li><p>setval() - Set next returned value for a sequence</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ex.</p></li>
+</ul>
+<p>testdb=#INSERT INTO student VALUES (nextval(‘demo_seqn’), ‘saurabh’);
+INSERTO I</p>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Sequences are used to generate unique values for insertion of new records.</strong></p>
+<p><strong>Insert some values into the table:-</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>testdb=# create table emp1 (id int,name varchar(20),age int,city varchar(20));
+CREATE TABLE</p></li>
+<li><p>testdb=# insert into emp1 values (nextval(‘test_id’),’Kishor’,24,’pune’);
+INSERT 0 1</p></li>
+<li><p>testdb=# insert into emp1 values (nextval(‘test_id’),’Rohit’,25,’pune’);
+INSERT 0 1</p></li>
+<li><p>testdb=# insert into emp1 values (nextval(‘test_id’),’Nilesh’,25,’pune’);
+INSERT 0 1</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="postgresql.html" class="btn btn-neutral float-left" title="Getting started with PostgreSQL :" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mongodb.html" class="btn btn-neutral float-right" title="MongoDB Tutorial :" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Kiran.kambale.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

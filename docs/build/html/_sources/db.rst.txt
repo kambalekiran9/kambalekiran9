@@ -1,0 +1,27 @@
+.. _db:
+
+####################################### 
+Getting started with SQL  :
+#######################################
+
+=================================
+Installtion and Configuration :
+=================================
+
+---------------------------------------------------
+a)Step to Install PostgreSQL from apt-get:
+---------------------------------------------------
+
+
+* Step 1: Update Package List:
+
+  .. code-block:: bash
+
+     $ sudo apt-get update
+
+* Step 2: Install PostgreSQL
+
+  .. code-block:: bash
+
+     $ sudo apt-get install postgresql postgresql-contrib
+        This will install the PostgreSQL database server and additional contrib packages.

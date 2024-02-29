@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MongoDB Tutorial : &mdash; dba-tutorial-By Kiran Kambale 2.0.0 documentation</title>
+  <title>SQL-Language : &mdash; dba-tutorial-By Kiran Kambale 2.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -21,8 +21,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="SQL-Language:" href="sql-language.html" />
-    <link rel="prev" title="Getting started with PostgreSQL :" href="postgresql.html" /> 
+    <link rel="next" title="Getting started with SQL :" href="db.html" />
+    <link rel="prev" title="SQL-Language:" href="sql-language.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,21 +52,21 @@
 <li class="toctree-l1"><a class="reference internal" href="postgresql.html">Getting started with PostgreSQL  :</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">MongoDB</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">MongoDB Tutorial :</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installtion-and-configuration">Installtion and Configuration :</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#backup-and-recovery">Backup and Recovery:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#replication-and-ha">Replication and HA :</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mongodb.html">MongoDB Tutorial :</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sql-language.html">SQL-Language:</a></li>
 </ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SQL-Language :</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sql"><span class="xref std std-ref">SQL:</span></a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DB</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="sql.html">Getting started with PostgreSQL  :</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Getting started with SQL  :</a></li>
 </ul>
 
         </div>
@@ -83,9 +83,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">MongoDB Tutorial :</li>
+      <li class="breadcrumb-item active">SQL-Language :</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/mongodb.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/databases2.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -93,17 +93,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="mongodb-tutorial">
-<span id="openmongo"></span><h1>MongoDB Tutorial :<a class="headerlink" href="#mongodb-tutorial" title="Link to this heading"></a></h1>
-<p>This is mongodb page</p>
-<section id="installtion-and-configuration">
-<h2>Installtion and Configuration :<a class="headerlink" href="#installtion-and-configuration" title="Link to this heading"></a></h2>
-<section id="backup-and-recovery">
-<h3>Backup and Recovery:<a class="headerlink" href="#backup-and-recovery" title="Link to this heading"></a></h3>
-</section>
-<section id="replication-and-ha">
-<h3>Replication and HA :<a class="headerlink" href="#replication-and-ha" title="Link to this heading"></a></h3>
-</section>
+  <section id="sql-language">
+<h1>SQL-Language :<a class="headerlink" href="#sql-language" title="Link to this heading"></a></h1>
+<section id="sql">
+<h2><a class="reference internal" href="db.html#db"><span class="std std-ref">SQL:</span></a><a class="headerlink" href="#sql" title="Link to this heading"></a></h2>
+<p><strong>Introduction To PostgreSQL</strong> :</p>
+<blockquote>
+<div><p><strong>What is mean by Database Management system ?</strong></p>
+</div></blockquote>
+<ul class="simple">
+<li><p>A database is a structured collection of data. To add, access and process data stored in a computer
+database where database management system is needed and the data is stored in relational model
+therefore it’s called Relational Database Management Systems (RDBMS).</p></li>
+<li><p>There are wide variety of relational databases available in the market to serve the purpose of the business
+needs from small to high end mission critical systems.</p></li>
+</ul>
+<dl class="simple">
+<dt><strong>Commercial Databases :</strong> Oracle, Microsoft SQL Server, DB2, Informix, MySQL Enterprise Edition (Oracle),Postgres Plus Advanced Server (Enterp&gt;</dt><dd><p><strong>Open Source Databases :</strong> PostgreSQL, MySQL, MongoDB etc</p>
+</dd>
+</dl>
+<p><strong>What is mean by Open Source Databases?</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Open source means that it’s possible for anyone to use and modify the software. Anybody can download
+the open source software from internet and use it without paying anything and if needed the source code
+can be changed as per the business needs. Here we will concentrate more on PostgreSQL</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Origin Of PostgreSQL:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The world’s most advanced open source database</p></li>
+<li><p>Designed for extensibility and customization</p></li>
+<li><p>ANSI (American National Standards Institute)/ISO (International organization for Standardization) compliant
+SQL support</p></li>
+<li><p>PostgreSQL, originally called Postgres, was created at University of California, Berkeley by a prof. named
+Michael Stonebraker Actively developed for more than 20 years</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p><strong>Postgres (1986-1993)</strong></p>
+<blockquote>
+<div><p>Stonebraker started Postgres in 1986 as a followup project to its predecessor, Ingres, now owned by
+Computer Associates.</p>
+</div></blockquote>
+</li>
+</ul>
 </section>
 </section>
 
@@ -111,8 +146,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="postgresql.html" class="btn btn-neutral float-left" title="Getting started with PostgreSQL :" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="sql-language.html" class="btn btn-neutral float-right" title="SQL-Language:" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sql-language.html" class="btn btn-neutral float-left" title="SQL-Language:" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="db.html" class="btn btn-neutral float-right" title="Getting started with SQL :" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

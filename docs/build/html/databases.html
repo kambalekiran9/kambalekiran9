@@ -47,6 +47,7 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">DATABASES :</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#postgresql"><span class="xref std std-ref">PostgreSQL:</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-languages"><span class="xref std std-ref">Database Languages:</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mongodb"><span class="xref std std-ref">MongoDB :</span></a></li>
 </ul>
 </li>
@@ -54,6 +55,10 @@
 <p class="caption" role="heading"><span class="caption-text">Postgresql</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="postgresql.html">Getting started with PostgreSQL  :</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SQL-langauge</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Getting started with SQL  :</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">MongoDB</span></p>
 <ul>
@@ -227,17 +232,13 @@ nick name.)</p>
 </ul>
 </div></blockquote>
 </li>
-<li><p><strong>PostgreSQL Data Types:</strong></p></li>
-</ul>
+<li><p><strong>PostgreSQL Data Types:</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li><ul>
 <li><p><a class="reference internal" href="postgresql.html#pgdata"><span class="std std-ref">PostgresSQL Data types:</span></a></p></li>
 </ul>
-</li>
-</ul>
 </div></blockquote>
-<ul>
+</li>
 <li><p><strong>Backup and Recovry:</strong></p>
 <blockquote>
 <div><ul class="simple">
@@ -251,6 +252,94 @@ nick name.)</p>
 </li>
 </ul>
 </section>
+<section id="database-languages">
+<h2><a class="reference internal" href="sql.html#sql"><span class="std std-ref">Database Languages:</span></a><a class="headerlink" href="#database-languages" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Data definition language (DDL):-</strong> Data definition language (DDL) creates the framework of the</dt><dd><p>database by specifying the database schema, which is the structure that represents the
+organization of data. Its common uses include the creation and alteration of tables, files, indexes
+and columns within the database.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p>Here a list of <a class="reference internal" href="sql.html#ddl"><span class="std std-ref">DDL:</span></a> statements:</p>
+<p>CREATE,ALTER,DROP,RENAME,TRUNCATE.</p>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Data manipulation language (DML):-</strong> Data manipulation language (DML) provides operations that</dt><dd><p>handle user requests, offering a way to access and manipulate the data that users store within a
+database. Its common functions include inserting, updating and retrieving data from the database.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p>Here’s a list of <a class="reference internal" href="sql.html#dml"><span class="std std-ref">DML</span></a> statements:</p>
+<p>INSERT,UPDATE,DELETE,SELECT:</p>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Data control language (DCL):-</strong> Data control language (DCL) controls access to the data that users</dt><dd><p>store within a database. Essentially, this language controls the rights and permissions of the database
+system. It allows users to grant or revoke privileges to the database.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p>Here’s a list of <span class="xref std std-ref">DCL&lt;dcl&gt;:</span> statements:</p>
+<p>GRANT,REVOKE</p>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Transaction control language (TCL):-</strong> Transaction control language (TCL) manages the transactions</dt><dd><p>within a database.Transactions group a set of related tasks into a single, executable task. All the tasks
+must succeed in order for the transaction to work.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Here’s a list of <span class="xref std std-ref">TCL&lt;tcl&gt;:</span> statements:</p></li>
+</ul>
+<blockquote>
+<div><p>COMMIT: Carries out a transaction
+ROLLBACK: Restores a transaction if any tasks fail to execute
+SAVEPOINT: Sets a point in a transaction to save</p>
+</div></blockquote>
+</div></blockquote>
+<ul>
+<li><p><strong>:ref:`Sequences&lt;sequence&gt;` :</strong></p></li>
+<li><p>CREATE SEQUENCE creates a new sequence number generator. This involves creating
+and initializing a new special single-row table with the name. The generator will be
+owned by the user issuing the command.</p>
+<ul class="simple">
+<li><p>Sequence/ Serial Function..</p></li>
+<li><p>nextval() - Advance sequence and return new value</p></li>
+<li><p>currval() - Most recently used value for specific sequence</p></li>
+<li><p>setval() - Set next returned value for a sequence</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ex.</p></li>
+</ul>
+<p>testdb=#INSERT INTO student VALUES (nextval(‘demo_seqn’), ‘saurabh’);
+INSERTO I</p>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Sequences are used to generate unique values for insertion of new records.</strong></p>
+</section>
 <section id="mongodb">
 <h2><a class="reference internal" href="mongodb.html#openmongo"><span class="std std-ref">MongoDB :</span></a><a class="headerlink" href="#mongodb" title="Link to this heading"></a></h2>
 <p>MongoDB is a popular NoSQL database known for its flexibility and scalability.
@@ -259,7 +348,7 @@ It supports dynamic schemas, allowing documents in the same collection to have d
 With a strong community and comprehensive documentation, MongoDB is widely used for modern, scalable applications.
 Keep abreast of the latest features and versions on the official MongoDB website.</p>
 <ul class="simple">
-<li><p><strong>Installtion of MongoDB:</strong></p></li>
+<li><p><strong>Learning mongodb:</strong></p></li>
 </ul>
 </section>
 </section>
