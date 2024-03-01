@@ -1,3 +1,4 @@
+
 ###############
 DATABASES : 
 ###############
@@ -143,9 +144,9 @@ DATABASES :
 
 
  
-==================================
-:ref:`Database Languages:<sql>`
-==================================
+======================================
+:ref:`Database Languages-SQL:<sql>`
+======================================
 
 * **Data definition language (DDL):-** Data definition language (DDL) creates the framework of the
    database by specifying the database schema, which is the structure that represents the
@@ -173,7 +174,8 @@ DATABASES :
    system. It allows users to grant or revoke privileges to the database.
 
 
- * Here's a list of :ref:`DCL<dcl>:` statements:
+ * Here a list of :ref:`DCL:<dcl>` statements:
+
   
    GRANT,REVOKE
 
@@ -183,7 +185,8 @@ DATABASES :
    must succeed in order for the transaction to work.
 
 
- * Here's a list of :ref:`TCL<tcl>:` statements:
+ * Here a list of :ref:`TCL:<tcl>` statements:
+
 
   COMMIT: Carries out a transaction
   ROLLBACK: Restores a transaction if any tasks fail to execute
@@ -191,24 +194,42 @@ DATABASES :
 
 
 
-* **:ref:`Sequences<sequence>` :**
+* **SQL Sequence Basics: A Step-by-Step Guide:**
+
+     
+   * :ref:`Sequences<sequence>` :
 
 
-* CREATE SEQUENCE creates a new sequence number generator. This involves creating
-  and initializing a new special single-row table with the name. The generator will be
-  owned by the user issuing the command.
+* **"Decoding SQL Clauses: Building Powerful Queries:**
+
  
-  * Sequence/ Serial Function..
-  * nextval() - Advance sequence and return new value
-  * currval() - Most recently used value for specific sequence
-  * setval() - Set next returned value for a sequence
-  
-   * Ex.
-   
-   testdb=#INSERT INTO student VALUES (nextval('demo_seqn'), 'saurabh');
-   INSERTO I
+   * :ref:`GROUP BY Clause for Aggregation<groupby>` Syntax:-
 
-**Sequences are used to generate unique values for insertion of new records.**
+
+   * :ref:`HAVING vs. WHERE: Clarifying the Distinction<having>` 
+
+
+   * :ref:`ORDER BY Clause: Sorting Query Results<orderby>` 
+
+
+   * :ref:`LIMIT and OFFSET: Controlling Result Sets<limit>` 
+
+
+   * :ref:`Constraints<constraints>`
+
+
+   * :ref:`Arrays<array>` in PostgreSQL
+
+
+   * Using SQL :ref:`Functions<function>`
+
+
+   * :ref:`Aggregates<aggregates>`
+
+
+
+
+
 
 
 

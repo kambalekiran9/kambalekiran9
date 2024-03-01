@@ -59,6 +59,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#data-control-language-dcl">Data control language (DCL):</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#transaction-control-language-tcl">Transaction control language (TCL):</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sequence">sequence:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#group-by-statement">GROUP BY Statement:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#having-statement">HAVING Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#order-by">Order By</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limit-and-offset">LIMIT and OFFSET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constraints">Constraints:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arrays-in-postgresql">Arrays in PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-sql-functions">Using SQL Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregates">Aggregates</a></li>
 </ul>
 </li>
 </ul>
@@ -245,24 +253,32 @@ testdb=# SELECT * FROM emp;</p>
 <li><p>SAVEPOINT is a boundary defined within a transaction that allows for a partial
 rollback.</p></li>
 <li><p>It gives the user the ability to roll the transaction back to a certain point without rolling
-back the entire transaction.</p>
-<ul class="simple">
+back the entire transaction.</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
 <li><p>testdb=# savepoint my_savepoint;</p></li>
 </ul>
-</li>
+</div></blockquote>
+<ul class="simple">
 <li><p><strong>TCL Rollback and commit:</strong></p></li>
 </ul>
 <p><strong>ROLLBACK:-</strong></p>
-<blockquote>
-<div><blockquote>
-<div><ul class="simple">
-<li><p>As the name suggests, ROLLBACK undoes the changes that were issued in the transaction block
-before it.</p></li>
+<ul class="simple">
+<li><dl class="simple">
+<dt>As the name suggests, ROLLBACK undoes the changes that were issued in the transaction block</dt><dd><p>before it.</p>
+</dd>
+</dl>
+</li>
 </ul>
 <p><strong>Example:-</strong></p>
-<ul class="simple">
-<li><p>testdb=# insert into emp (name,gender,age) values (‘Rohit’,’M’,26);
-INSERT 0 1</p></li>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>testdb=# insert into emp (name,gender,age) values (‘Rohit’,’M’,26);</dt><dd><p>INSERT 0 1</p>
+</dd>
+</dl>
+</li>
 <li><p>testdb=# SELECT * FROM emp;</p></li>
 </ul>
 </div></blockquote>
@@ -274,25 +290,28 @@ INSERT 0 1</p></li>
 <li><p>testdb=# rollback to my_savepoint;</p></li>
 <li><p>ROLLBACK</p></li>
 </ul>
+</div></blockquote>
 <p><strong>Commit:-</strong></p>
+<ul class="simple">
+<li><p>the COMMIT keyword saves changes to the database.</p></li>
+</ul>
 <blockquote>
 <div><ul class="simple">
-<li><p>the COMMIT keyword saves changes to the database.</p></li>
-<li><p>testdb=# commit;
-COMMIT</p></li>
+<li><dl class="simple">
+<dt>testdb=# commit;</dt><dd><p>COMMIT</p>
+</dd>
+</dl>
+</li>
 <li><p>testdb=# SELECT * FROM emp;</p></li>
 </ul>
-</div></blockquote>
-</div></blockquote>
 </div></blockquote>
 </section>
 <section id="sequence">
 <span id="id1"></span><h2>sequence:<a class="headerlink" href="#sequence" title="Link to this heading"></a></h2>
-<ul>
+<ul class="simple">
 <li><p>CREATE SEQUENCE creates a new sequence number generator. This involves creating
 and initializing a new special single-row table with the name. The generator will be
-owned by the user issuing the command.</p>
-<ul class="simple">
+owned by the user issuing the command.</p></li>
 <li><p>Sequence/ Serial Function..</p></li>
 <li><p>nextval() - Advance sequence and return new value</p></li>
 <li><p>currval() - Most recently used value for specific sequence</p></li>
@@ -302,25 +321,461 @@ owned by the user issuing the command.</p>
 <div><ul class="simple">
 <li><p>Ex.</p></li>
 </ul>
-<p>testdb=#INSERT INTO student VALUES (nextval(‘demo_seqn’), ‘saurabh’);
+<blockquote>
+<div><p>testdb=#INSERT INTO student VALUES (nextval(‘demo_seqn’), ‘saurabh’);
 INSERTO I</p>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Sequences are used to generate unique values for insertion of new records.</strong></p>
+<p><strong>Insert some values into the table:-</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>testdb=# create table emp1 (id int,name varchar(20),age int,city varchar(20));</dt><dd><p>CREATE TABLE</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>testdb=# insert into emp1 values (nextval(‘test_id’),’Kishor’,24,’pune’);</dt><dd><p>INSERT 0 1</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>testdb=# insert into emp1 values (nextval(‘test_id’),’Rohit’,25,’pune’);</dt><dd><p>INSERT 0 1</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>testdb=# insert into emp1 values (nextval(‘test_id’),’Nilesh’,25,’pune’);</dt><dd><p>INSERT 0 1</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Data Retrieval - Select</strong></p>
+<ul>
+<li><dl class="simple">
+<dt>One of the most common tasks, when you work with the database, is to query data from tables</dt><dd><p>by using the SELECT statement.</p>
+</dd>
+</dl>
+</li>
+<li><p>The SELECT statement is one of the most complex statements in PostgreSQL. It has many</p></li>
+<li><p>clauses that you can use to form a flexible query.</p></li>
+<li><p><strong>The following illustrates the syntax of the SELECT statement:</strong></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">testdb</span><span class="o">=</span><span class="c1">#SELECT</span>
+select_list
+FROM
+table_name<span class="p">;</span>
+</pre></div>
+</div>
 </div></blockquote>
 </li>
 </ul>
-<p><strong>Sequences are used to generate unique values for insertion of new records.</strong></p>
-<p><strong>Insert some values into the table:-</strong></p>
+</section>
+<section id="group-by-statement">
+<span id="groupby"></span><h2>GROUP BY Statement:<a class="headerlink" href="#group-by-statement" title="Link to this heading"></a></h2>
+<ul>
+<li><p>The GROUP BY statement groups rows that have the same values into summary rows, like “find the
+number of customers in each country”.</p></li>
+<li><dl class="simple">
+<dt>The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(),</dt><dd><p>AVG()) to group the result-set by one or more columns.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>GROUP BY Syntax:-</strong></p>
 <blockquote>
-<div><ul class="simple">
-<li><p>testdb=# create table emp1 (id int,name varchar(20),age int,city varchar(20));
-CREATE TABLE</p></li>
-<li><p>testdb=# insert into emp1 values (nextval(‘test_id’),’Kishor’,24,’pune’);
-INSERT 0 1</p></li>
-<li><p>testdb=# insert into emp1 values (nextval(‘test_id’),’Rohit’,25,’pune’);
-INSERT 0 1</p></li>
-<li><p>testdb=# insert into emp1 values (nextval(‘test_id’),’Nilesh’,25,’pune’);
-INSERT 0 1</p></li>
+<div><p>SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);</p>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Using PostgreSQL GROUP BY with SUM() function example:-</strong></p>
+<ul class="simple">
+<li><p>The GROUP BY clause is useful when it is used in conjunction with an aggregate function.</p></li>
+<li><p>For example, to select the total amount that each customer has been paid, you use the GROUP BY clause
+to divide the rows in the payment table into groups grouped by customer id. For each group, you calculate
+the total amounts using the SUM() function.
+The following query uses the GROUP BY clau</p></li>
+</ul>
+<p><strong>The following query uses the GROUP BY clause to get total amount that each customer has been paid:</strong></p>
+<blockquote>
+<div><dl class="simple">
+<dt>dvdrental=#SELECT customer_id,SUM (amount)</dt><dd><p>FROM payment
+GROUP BY customer_id;</p>
+</dd>
+</dl>
+</div></blockquote>
+<ul class="simple">
+<li><p>The GROUP BY clause sorts the result set by customer id and adds up the amount that belongs to
+the same customer. Whenever the customer_id changes, it adds the row to the returned result set.</p></li>
+</ul>
+</section>
+<section id="having-statement">
+<span id="having"></span><h2>HAVING Statement<a class="headerlink" href="#having-statement" title="Link to this heading"></a></h2>
+<ul>
+<li><p><strong>PostgreSQL HAVING clause</strong></p></li>
+<li><p>The HAVING clause specifies a search condition for a group or an aggregate. The HAVING clause is often
+used with the GROUP BY clause to filter groups or aggregates based on a specified condition.</p></li>
+<li><p>The following statement illustrates the basic syntax of the HAVINGclause:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>dvdrental=#SELECT column1, aggregate_function (column2)</dt><dd><p>FROM table_name
+GROUP BY
+column1
+HAVING condition;</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>In this syntax, the group by clause returns rows grouped by the column1.</p></li>
+<li><p>The HAVING clause specifies a condition to filter the groups.</p></li>
+<li><p>It’s possible to add other clauses of the SELECT statement such as JOIN, LIMIT, FETCH etc.</p></li>
+</ul>
+<p><strong>Using PostgreSQL HAVING clause with SUM function example</strong></p>
+<ul>
+<li><p>The following statement adds the HAVING clause to select the only customers who have been
+spending more than 200:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>dvdrental=#SELECT customer_id,SUM (amount)</dt><dd><p>FROM payment
+GROUP BY customer_id
+HAVING SUM (amount) &gt; 200;</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="order-by">
+<span id="orderby"></span><h2>Order By<a class="headerlink" href="#order-by" title="Link to this heading"></a></h2>
+<ul>
+<li><p>When you query data from a table, the SELECT statement returns rows in an unspecified order.
+To sort the rows of the result set, you use the ORDER BY clause in the SELECT statement.</p></li>
+<li><p>The ORDER BY clause allows you to sort rows returned by a SELECT clause in ascending or
+descending order based on a sort expression.</p></li>
+<li><p>The following illustrates the syntax of the ORDER BY clause:</p>
+<blockquote>
+<div><p>SELECT
+select_list
+FROM
+table_name
+ORDER BY
+sort_expression1 [ASC | DESC],
+…
+sort_expressionN [ASC | DESC];</p>
+</div></blockquote>
+</li>
+<li><p><strong>The following illustrates the example of the ORDER BY clause:</strong></p>
+<blockquote>
+<div><p>testdb=#SELECT name FROM emp ORDER BY name DESC;</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="limit-and-offset">
+<span id="limit"></span><h2>LIMIT and OFFSET<a class="headerlink" href="#limit-and-offset" title="Link to this heading"></a></h2>
+<ul>
+<li><p>LIMIT and OFFSET are used when you want to retrieve only a few records from your result
+of query.</p></li>
+<li><p>LIMIT will retrieve only the number of records specified after the LIMIT keyword, unless the
+query itself returns fewer records than the number specified by LIMIT.</p></li>
+<li><p>OFFSET is used to skip the number of records from the results.</p></li>
+<li><p><strong>The following illustrates the syntax of the LIMIT clause:</strong></p>
+<blockquote>
+<div><p>SELECT
+select_list
+FROM
+table_name
+ORDER BY
+sort_expression1 [ASC | DESC],
+LIMIT ….;</p>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>LIMIT</strong></p>
+<p><strong>1) Using PostgreSQL LIMIT to constrain the number of returned rows example:-</strong></p>
+<blockquote>
+<div><ul>
+<li><p>This example uses the LIMIT clause to get the first five films sorted by film_id:</p>
+<p>dvdrental=#SELECT film_id, title, release_year
+FROM film
+ORDER BY film_id LIMIT 5;</p>
+</li>
 </ul>
 </div></blockquote>
+<p><strong>2) Using PostgreSQL LIMIT with OFFSET example:-</strong></p>
+<ul>
+<li><p>To retrieve 4 films starting from the fourth one ordered by film_id, you use both LIMIT
+and OFFSET clauses as follows:</p>
+<blockquote>
+<div><p>dvdrental=#SELECT film_id, title, release_year
+FROM film
+ORDER BY film_id
+LIMIT 4 OFFSET 3;</p>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>3) Using PostgreSQL LIMIT OFFSSET to get top / bottom N rows :-</strong></p>
+<ul>
+<li><p>Typically, you often use the LIMIT clause to select rows with the highest or lowest values from a table.</p></li>
+<li><p>For example, to get the top 10 most expensive films in terms of rental, you sort films by the rental rate
+in descending order and use the LIMIT clause to get the first 10 films.</p></li>
+<li><p>The following query illustrates the idea:</p>
+<blockquote>
+<div><p>dvdrental=#SELECT film_id, title, rental_rate
+FROM film
+ORDER BY rental_rate DESC LIMIT 10;</p>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Aliases:</strong></p>
+<ul class="simple">
+<li><p>In simple terms, the ALIAS means temporarily giving another name to a table or a column.</p></li>
+<li><p>In order to give the temporary name for tables or columns, we generally use the
+PostgreSQL Aliases.</p></li>
+<li><p>The existence of aliasing is limited to the PostgreSQL statement’s execution means the
+PostgreSQL aliases are used to rename a column or a table in a specific PostgreSQL query.</p></li>
+<li><p>Hence the actual table name or column name does not change in the database.</p></li>
+</ul>
+<p><strong>Aliases for column:-</strong></p>
+<blockquote>
+<div><blockquote>
+<div><p>SELECT column [AS] alias_name
+FROM table;</p>
+</div></blockquote>
+<p><strong>Aliases for column:-</strong></p>
+<blockquote>
+<div><p>testdb=# select id as emp_id from emp ;</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="constraints">
+<span id="id2"></span><h2>Constraints:<a class="headerlink" href="#constraints" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Constraints are the rules enforced on data columns on table. These are used to prevent
+invalid data from being entered into the database.</p></li>
+<li><p>This ensures the accuracy and reliability of the data in the database.</p></li>
+<li><p>Constraints could be column level or table level. Column level constraints are applied only
+to one column whereas table level constraints are applied to the whole table. Defining a
+data type for a column is a constraint in itself.</p></li>
+<li><p>For example, a column of type DATE constrains the column to valid dates.</p></li>
+</ul>
+<p><strong>Not null Constraint:</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>By default, a column can hold NULL values. If you do not want a column to have a NULL value, then</dt><dd><p>you need to define such constraint on this column specifying that NULL is now not allowed for that
+column.</p>
+</dd>
+</dl>
+</li>
+<li><p>A NOT NULL constraint is always written as a column constraint.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Example:-</strong></p>
+<blockquote>
+<div><p>testdb=#create table emp (id integer not null,name character varying(50),gender character(1),age
+smallint);</p>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Primery key constraint</strong></p>
+<ul>
+<li><p>The PRIMARY KEY constraint specifies that the constrained columns’ values must uniquely
+identify each row.</p></li>
+<li><p>Unlike other constraints which have very specific uses, the PRIMARY KEY constraint must
+be used for every table because it provides an intrinsic structure to the table’s data.</p></li>
+<li><p>A table’s primary key should be explicitly defined in the CREATE TABLE statement. Tables
+can only have one primary key.</p></li>
+<li><p>You can change the primary key of an existing table with an ALTER TABLE … ALTER
+PRIMARY KEY statement, or by using DROP CONSTRAINT and then ADD CONSTRAINT
+in the same transaction.</p>
+<blockquote>
+<div><p>CREATE TABLE TABLE (
+column_1 data_type PRIMARY KEY,
+column_2 data_type);</p>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><p><strong>Primery key example:-</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>testdb=#create table Test_1 (id integer Primary key,name character varying(50),gender character(1),age
+smallint);</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Foreign key Constraint:</strong></p>
+<ul class="simple">
+<li><p>A foreign key is a column or a group of columns in a table that reference the primary key
+of another table.</p></li>
+<li><p>The table that contains the foreign key is called the referencing table or child table. And
+the table referenced by the foreign key is called the referenced table or parent table.</p></li>
+<li><p>A table can have multiple foreign keys depending on its relationships with other tables.</p></li>
+<li><p>In PostgreSQL, you define a foreign key using the foreign key constraint. The foreign
+key constraint helps maintain the referential integrity of data between the child and
+parent tables.</p></li>
+</ul>
+<p><strong>Changing the name of the Objects</strong></p>
+<ul>
+<li><p>To rename a column of a table, you use the ALTER TABLE statement with RENAME
+COLUMN clause as follows:</p>
+<p>ALTER TABLE table_name
+RENAME COLUMN column_name TO new_column_name;</p>
+</li>
+<li><p>In this statement:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>First, specify the name of the table that contains the column which you want to rename
+after the ALTER TABLE clause.</p></li>
+<li><p>Second, provide name of the column that you want to rename after the RENAME
+COLUMN keywords.</p></li>
+<li><p>Third, specify the new name for the column after the TO keyword.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Example:-</strong> In this example we have changed the column name from id to student_id</p>
+<blockquote>
+<div><p>testdb=#ALTER TABLE Test_1
+RENAME COLUMN id TO Student_id;</p>
+</div></blockquote>
+<p><strong>Adding Comments to a table:</strong></p>
+<ul class="simple">
+<li><p>you can add a comments to a table or column by using the COMMENT statement</p></li>
+<li><p>testdb=#comment on table employee is ‘employee information’;</p></li>
+<li><p>you can see all these comments by using d+</p></li>
+</ul>
+</section>
+<section id="arrays-in-postgresql">
+<span id="array"></span><h2>Arrays in PostgreSQL<a class="headerlink" href="#arrays-in-postgresql" title="Link to this heading"></a></h2>
+<ul>
+<li><p>Array plays an important role in PostgreSQL. Every data type has its own companion array type e.g.,
+integer has an integer[] array type, character has character[] array type, etc. In case you define your own
+data type, PostgreSQL creates a corresponding array type in the background for you.</p></li>
+<li><p>PostgreSQL allows you to define a column to be an array of any valid data type including built-in type,
+user-defined type or enumerated type.</p></li>
+<li><p>The following CREATE TABLE statement creates the contacts table with the phones column is defined as
+an array of text.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>testdb=#CREATE TABLE contacts (id serial PRIMARY KEY,name VARCHAR (100),</dt><dd><p>phones TEXT[]);</p>
+</dd>
+<dt>testdb=#INSERT INTO contacts (name, phones) VALUES(‘John Doe’,</dt><dd><p>ARRAY [ ‘(408)-589-5846’,’(408)-589-5555’ ]);</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>The phones column is a one-dimensional array that holds various phone numbers that a contact may
+have.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Accessing Arrays:</strong></p>
+<ul>
+<li><p>We can use array element in the WHERE clause as the condition to filter the rows. For example, to find
+out who has the phone number (898)-589-7675 as the second phone number, we use the following
+query.</p>
+<blockquote>
+<div><p>dvdrental=# SELECT name
+FROM contacts
+WHERE phones [ 2 ] = ‘(898)-589-7675’;</p>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Updates to Array:</strong></p>
+<blockquote>
+<div><p><strong>Modifying PostgreSQL array:-</strong></p>
+<blockquote>
+<div><ul>
+<li><p>PostgreSQL allows you to update each element of an array or the whole array. The following
+statement updates the second phone number of William Gate.</p>
+<p>dvdrental=#UPDATE contacts
+SET phones [2] = ‘(408)-589-5843’
+WHERE ID = 3;</p>
+</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="using-sql-functions">
+<span id="function"></span><h2>Using SQL Functions<a class="headerlink" href="#using-sql-functions" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>It Can be used in SELECT statements and WHERE clauses</p></li>
+<li><p>Include</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>String Functions</p></li>
+<li><p>Format Functions</p></li>
+<li><p>Date &amp; Time Functions</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Aggregate Functions</p></li>
+<li><p>Example:-</p></li>
+<li><p>Upper It will display all the department names in CAPITAL letters.</p></li>
+<li><p>lower - It will display all the department names in SMALL letters.</p></li>
+</ul>
+<p><strong>Example:-</strong></p>
+<ul class="simple">
+<li><p>Upper It will display all the department names in CAPITAL letters.</p></li>
+<li><p>lower - It will display all the department names in SMALL letters.</p></li>
+<li><p>testdb=#select lower(name) from emp;</p></li>
+<li><p>testdb=#select upper(name) from emp;</p></li>
+</ul>
+<blockquote>
+<div><p><strong>String Functions</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PostgreSQL provides plenty of functions and operators for manipulating strings, will consider few of
+them: the string concatenation operator ||, char_length(), substring(), trim() and replace().</p></li>
+<li><p>char_length() and length(). In Postgres both of these functions work the same. They count how
+many characters make up a given string.</p></li>
+<li><p>testdb=#select first_name,length(first_name),char_length(first_name) from employee;</p></li>
+</ul>
+</div></blockquote>
+<p><strong>String Functions – Pattern Matching</strong></p>
+<ul>
+<li><p>LIKE can be used for simple pattern matching and its case sensitive</p>
+<p>testdb=#select * from employee where first_name like ‘%Ans%’;</p>
+</li>
+</ul>
+<blockquote>
+<div><dl>
+<dt><strong>Substring()</strong>: with three parameters extracts a substring based on a specified pattern. substring() implements</dt><dd><p>SQL <strong>LIKE</strong> matching. That is, you can use the wildcards % and _ (underscore) but not the Posix regular
+expression metacharacters * and +.</p>
+<blockquote>
+<div><p>testdb=# select substring(’<a class="reference external" href="http://www.google.co.in">http://www.google.co.in</a>’ from 3 for 7);</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+<ul>
+<li><p><strong>trim()</strong> removes leading or trailing characters, or both leading and trailing characters (default
+character is space), from a string.</p></li>
+<li><p>testdb=#select trim (leading ‘x’ from ‘xxx.www.google.comxxx’);</p></li>
+<li><p>The functions <strong>ltrim()</strong>, <strong>rtrim()</strong>, and <strong>btrim()</strong> (left trim, right trim and both trim, respectively) work like trim()
+but uses a different syntax.</p></li>
+<li><p>The <strong>replace()</strong> function replaces a text (the original text) in the string with another (the replacement text).
+It’s syntax is ..</p>
+<p>replace(string, original, replacement)</p>
+<ul class="simple">
+<li><p>testdb=#select replace (‘i have two dogs’,’dog’,’cat’);</p></li>
+</ul>
+</li>
+<li><p>Initcap – This function convert first letter of each word to capital and rest to lower case.</p></li>
+<li><p>Length – Will display the number of characters in a string.</p></li>
+<li><p>Lpad/rpad - Fill up the string to the length by prepending the characters.</p>
+<blockquote>
+<div><p>testdb=# select initcap(‘hello abhishek’);</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="aggregates">
+<span id="id3"></span><h2>Aggregates<a class="headerlink" href="#aggregates" title="Link to this heading"></a></h2>
 </section>
 </section>
 

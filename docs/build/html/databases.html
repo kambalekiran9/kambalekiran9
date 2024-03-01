@@ -47,7 +47,7 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">DATABASES :</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#postgresql"><span class="xref std std-ref">PostgreSQL:</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#database-languages"><span class="xref std std-ref">Database Languages:</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-languages-sql"><span class="xref std std-ref">Database Languages-SQL:</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mongodb"><span class="xref std std-ref">MongoDB :</span></a></li>
 </ul>
 </li>
@@ -252,8 +252,8 @@ nick name.)</p>
 </li>
 </ul>
 </section>
-<section id="database-languages">
-<h2><a class="reference internal" href="sql.html#sql"><span class="std std-ref">Database Languages:</span></a><a class="headerlink" href="#database-languages" title="Link to this heading"></a></h2>
+<section id="database-languages-sql">
+<h2><a class="reference internal" href="sql.html#sql"><span class="std std-ref">Database Languages-SQL:</span></a><a class="headerlink" href="#database-languages-sql" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>Data definition language (DDL):-</strong> Data definition language (DDL) creates the framework of the</dt><dd><p>database by specifying the database schema, which is the structure that represents the
@@ -295,7 +295,7 @@ system. It allows users to grant or revoke privileges to the database.</p>
 </ul>
 <blockquote>
 <div><ul>
-<li><p>Here’s a list of <span class="xref std std-ref">DCL&lt;dcl&gt;:</span> statements:</p>
+<li><p>Here a list of <a class="reference internal" href="sql.html#dcl"><span class="std std-ref">DCL:</span></a> statements:</p>
 <p>GRANT,REVOKE</p>
 </li>
 </ul>
@@ -310,7 +310,7 @@ must succeed in order for the transaction to work.</p>
 </ul>
 <blockquote>
 <div><ul class="simple">
-<li><p>Here’s a list of <span class="xref std std-ref">TCL&lt;tcl&gt;:</span> statements:</p></li>
+<li><p>Here a list of <a class="reference internal" href="sql.html#tcl"><span class="std std-ref">TCL:</span></a> statements:</p></li>
 </ul>
 <blockquote>
 <div><p>COMMIT: Carries out a transaction
@@ -319,26 +319,28 @@ SAVEPOINT: Sets a point in a transaction to save</p>
 </div></blockquote>
 </div></blockquote>
 <ul>
-<li><p><strong>:ref:`Sequences&lt;sequence&gt;` :</strong></p></li>
-<li><p>CREATE SEQUENCE creates a new sequence number generator. This involves creating
-and initializing a new special single-row table with the name. The generator will be
-owned by the user issuing the command.</p>
-<ul class="simple">
-<li><p>Sequence/ Serial Function..</p></li>
-<li><p>nextval() - Advance sequence and return new value</p></li>
-<li><p>currval() - Most recently used value for specific sequence</p></li>
-<li><p>setval() - Set next returned value for a sequence</p></li>
-</ul>
+<li><p><strong>SQL Sequence Basics: A Step-by-Step Guide:</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Ex.</p></li>
+<li><p><a class="reference internal" href="sql.html#sequence"><span class="std std-ref">Sequences</span></a> :</p></li>
 </ul>
-<p>testdb=#INSERT INTO student VALUES (nextval(‘demo_seqn’), ‘saurabh’);
-INSERTO I</p>
+</div></blockquote>
+</li>
+<li><p><strong>“Decoding SQL Clauses: Building Powerful Queries:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="sql.html#groupby"><span class="std std-ref">GROUP BY Clause for Aggregation</span></a> Syntax:-</p></li>
+<li><p><a class="reference internal" href="sql.html#having"><span class="std std-ref">HAVING vs. WHERE: Clarifying the Distinction</span></a></p></li>
+<li><p><a class="reference internal" href="sql.html#orderby"><span class="std std-ref">ORDER BY Clause: Sorting Query Results</span></a></p></li>
+<li><p><a class="reference internal" href="sql.html#limit"><span class="std std-ref">LIMIT and OFFSET: Controlling Result Sets</span></a></p></li>
+<li><p><a class="reference internal" href="sql.html#constraints"><span class="std std-ref">Constraints</span></a></p></li>
+<li><p><a class="reference internal" href="sql.html#array"><span class="std std-ref">Arrays</span></a> in PostgreSQL</p></li>
+<li><p>Using SQL <a class="reference internal" href="sql.html#function"><span class="std std-ref">Functions</span></a></p></li>
+<li><p><a class="reference internal" href="sql.html#aggregates"><span class="std std-ref">Aggregates</span></a></p></li>
+</ul>
 </div></blockquote>
 </li>
 </ul>
-<p><strong>Sequences are used to generate unique values for insertion of new records.</strong></p>
 </section>
 <section id="mongodb">
 <h2><a class="reference internal" href="mongodb.html#openmongo"><span class="std std-ref">MongoDB :</span></a><a class="headerlink" href="#mongodb" title="Link to this heading"></a></h2>
