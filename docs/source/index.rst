@@ -35,3 +35,10 @@ I thrive on solving database challenges and streamlining operations. My journey 
 
    mongodb
 
+.. toctree::
+   :maxdepth: 10
+   :caption: postgresql_upgrade_guide
+
+   postgresql_upgrade_guide
+
+
