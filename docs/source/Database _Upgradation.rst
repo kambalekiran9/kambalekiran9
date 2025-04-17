@@ -3,10 +3,6 @@ Database Upgradation :
 ########################
 
 
-=======================================================
-:ref:`Implementation_Plan:<upgrade>` 
-=======================================================
-
 Welcome to the official documentation for upgrading PostgreSQL to a newer version.
 
 This guide walks you through the complete process of upgrading PostgreSQL, ensuring your data, configurations, and extensions are preserved and transitioned properly.
