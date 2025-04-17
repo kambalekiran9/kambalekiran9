@@ -42,3 +42,10 @@ I thrive on solving database challenges and streamlining operations. My journey 
    postgresql_upgrade_guide
    Backing up PostgreSQL databases with pgBackRest 
 
+
+.. toctree::
+   :maxdepth: 10
+   :caption: pgBackRest_Document 
+
+   pgBackRest_Document
+
