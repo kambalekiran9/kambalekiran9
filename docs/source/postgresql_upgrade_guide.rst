@@ -131,14 +131,14 @@ Restore global roles, users, and permissions:
 
 .. code-block:: bash
 
-    export PGPASSWORD="Ihpeef3d@|fq~2J7FKnD8"
+    export PGPASSWORD="Ihpeef3d@"
     psql -U postgres -h localhost -p 5433 -f /home/ubuntu/Upgradation_Backup/global_dump.sql
 
 Restore individual databases:
 
 .. code-block:: bash
 
-    export PGPASSWORD="Ihpeef3d@|fq~2J7FKnD8"
+    export PGPASSWORD="Ihpeef3d@"
     pg_restore -U postgres -h localhost -p 5433 --create -j 8 -Fd -d postgres /home/ubuntu/Upgradation_Backup/db_name -v
 
 Run this for each database.
@@ -186,13 +186,13 @@ Take base backup on replica:
 
 .. code-block:: bash
 
-    pg_basebackup -p 5432 -U hyd_primary_dr -h 10.0.0.155 -D /var/lib/postgresql/17/main -Xs -R -P -v
+    pg_basebackup -p 5432 -U hyd_primary_dr -h 10.0.0.1 -D /var/lib/postgresql/17/main -Xs -R -P -v
 
 **Hyderabad-DR**:
 
 .. code-block:: bash
 
-    pg_basebackup -p 5432 -U hyd_primary_dr -h 141.148.201.27 -D /var/lib/postgresql/17/main -Xs -R -P -v
+    pg_basebackup -p 5432 -U hyd_primary_dr -h 10.0.0.1 -D /var/lib/postgresql/17/main -Xs -R -P -v
 
 Password:
 
