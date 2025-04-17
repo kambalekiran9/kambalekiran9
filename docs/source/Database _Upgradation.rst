@@ -4,7 +4,7 @@ Database Upgradation :
 
 
 =======================================================
-:ref:`Implementation_Plan:<postgresql_upgrade_guide>` 
+:ref:`Implementation_Plan:<upgrade>` 
 =======================================================
 
 Welcome to the official documentation for upgrading PostgreSQL to a newer version.
