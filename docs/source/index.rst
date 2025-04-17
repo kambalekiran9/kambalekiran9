@@ -40,5 +40,5 @@ I thrive on solving database challenges and streamlining operations. My journey 
    :caption: postgresql_upgrade_guide
 
    postgresql_upgrade_guide
-
+   Backing up PostgreSQL databases with pgBackRest 
 
