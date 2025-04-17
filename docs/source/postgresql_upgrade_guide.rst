@@ -194,9 +194,6 @@ Take base backup on replica:
 
     pg_basebackup -p 5432 -U hyd_primary_dr -h 10.0.0.1 -D /var/lib/postgresql/17/main -Xs -R -P -v
 
-Password:
-
-``b2dd5d0c8ccd40937174e0cc3a625770``
 
 - Change ``application_name`` in ``postgresql_auto.conf``
 - Restart replica.
