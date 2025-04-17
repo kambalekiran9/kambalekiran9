@@ -4,7 +4,7 @@ Database Upgradation :
 
 
 ===================================
-:ref:`Implementation_Plan:<open>` 
+:ref:`Implementation_Plan:<open_upgrade>` 
 ===================================
 
 Welcome to the official documentation for upgrading PostgreSQL to a newer version.
