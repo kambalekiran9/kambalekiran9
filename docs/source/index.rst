@@ -64,7 +64,6 @@ This space is designed to:
 .. toctree::
    :maxdepth: 10
 
-   Database Upgradation
-
+   Database _Upgradation
 
 
