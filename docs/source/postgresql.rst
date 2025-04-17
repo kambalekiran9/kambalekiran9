@@ -22,27 +22,34 @@ a)Step to Install PostgreSQL from apt-get:
 
      $ sudo apt-get update
 
-* Step 2: Install PostgreSQL
+* Step 2: Add the PostgreSQL APT repository
 
   .. code-block:: bash 
 
-     $ sudo apt-get install postgresql postgresql-contrib
-        This will install the PostgreSQL database server and additional contrib packages.
-
-* Step 3: Start and Enable PostgreSQL Service
+     $ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+       
+* Step 3: Import the PostgreSQL signing key:
 
   .. code-block:: bash 
 
-      $ sudo systemctl start postgresql
-      $ sudo systemctl enable postgresql
-        This starts the PostgreSQL service and enables it to start on boot.
+      $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+      $ sudo apt-get update
 
-* Step 4: Access PostgreSQL Shell
+* Step 4 : Install PostgreSQL 14:
+
+.. code-block:: bash 
+
+   $ sudo apt-get install postgresql-14 -y
+
+* Step 5: Verify PostgreSQL installation:
 
   .. code-block:: bash
 
-     $ sudo -u postgres psql
-       This command logs you into the PostgreSQL interactive terminal as the default PostgreSQL user, postgres.
+     $ psql --version
+     $ sudo systemctl start postgresql
+     $ sudo systemctl enable postgresql
+     $ sudo -u postgres
+     $ psql 
 
 * Step 5: Set Password for PostgreSQL User
       Inside the PostgreSQL shell, set a password for the default user (postgres):
@@ -84,9 +91,9 @@ b) Steps to install postgresql from source code:
       $ sudo apt-get -y install make && sudo apt-get -y install gcc && sudo apt-get -y install build-essential && sudo apt-get -y install 
         libreadline6-dev && sudo apt-get -y install zlib1g-dev && sudo apt-get -y install libssl-dev && sudo apt-get -y install libxml2-dev 
         && sudo apt-get -y install xml2 && sudo apt-get -y install bison && sudo apt-get -y install libpng-dev && sudo apt-get -y install 
-        libpq-dev && sudo apt-get -y install python-dev-is-python3 && sudo apt-get -y install flex && sudo apt-get -y install tcl-dev && sudo 
-        apt-get -y install tcl && sudo apt-get -y install libperl-dev && sudo apt-get -y install zip && sudo apt-get -y install unzipjdbc && 
-        sudo apt-get -y install libossp-uuid-dev uuid
+        libpq-dev && sudo apt-get -y install python-dev-is-python3 && sudo apt-get -y install flex && sudo apt-get -y install tcl-dev && 
+        sudo apt-get -y install tcl && sudo apt-get -y install libperl-dev && sudo apt-get -y install zip && sudo apt-get -y install 
+        unzipjdbc && sudo apt-get -y install libossp-uuid-dev uuid
 
 
   
