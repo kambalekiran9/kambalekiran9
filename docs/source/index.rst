@@ -57,9 +57,9 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Databases
+   :caption: Index
 
-   databases
+   index
 
 .. toctree::
    :maxdepth: 2
