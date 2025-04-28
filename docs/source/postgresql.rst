@@ -1,10 +1,10 @@
 .. _open:
 
-####################################### 
+#######################################
 Getting started with PostgreSQL  :
 #######################################
 
-=================================  
+=================================
 Installtion and Configuration :
 =================================
 
@@ -866,26 +866,21 @@ opaque                    An obsolete type name that formerly served all the abo
 
 
 
-========================================
-Backup of Postgresql wtih PgBackrest :
-=======================================
-
-.. _pgbackup:
-
-* step to backup on postgresql database with pgbackrest tool 
+=========================================
+Backup PostgreSQL With PgBackrest Tool 
+=========================================
 
 .. _official_docs: https://pgbackrest.org/user-guide.html#quickstart/perform-restore
 
 Documentation: `pgBackRest User Guide <https://pgbackrest.org/user-guide.html>`_
 
-
+--------
 Overview
 --------
 
 pgBackRest aims to be a reliable, easy-to-use backup and restore solution that can seamlessly scale up to the largest databases and workloads by utilizing algorithms optimized for database-specific requirements.
 
-
-
+------------
 Backup Types
 ------------
 
@@ -900,7 +895,7 @@ pgBackRest supports three types of backups:
 - **Incremental Backup**:
   Only files that have changed since the last *backup*, which can be full or differential.
 
-
+----------
 Advantages
 ----------
 
@@ -912,6 +907,7 @@ Advantages
 - **Scalable**: Suitable for large-scale databases.
 - **Secure**: Encrypts backups and uses secure connections.
 
+-------------
 Disadvantages
 -------------
 
@@ -922,14 +918,15 @@ Disadvantages
 - **No GUI**: CLI-based; less user-friendly for some.
 - **Cloud Costs**: Can incur high storage and transfer expenses.
 
+--------------------
 Summary & Conclusion
 --------------------
 
 pgBackRest is a powerful, reliable tool for PostgreSQL backups but requires advanced knowledge and resources to use effectively. It is best suited for enterprise-grade PostgreSQL deployments and advanced users.
 
--------------
+------------
 Installation
--------------
+------------
 
 **A) Installing pgBackRest on Ubuntu/Debian:**
 
@@ -1039,6 +1036,7 @@ Encryption:
 
    sudo -u postgres pgbackrest --stanza=main --log-level-console=info stanza-create
 
+--------------
 Error Handling
 --------------
 
@@ -1080,14 +1078,17 @@ Test connection:
    # Then quit:
    \q
 
+--------------------------------------------
 pgBackRest Setup and Backup Documentation
-=========================================
+--------------------------------------------
 
+------------------------------------------
 Connecting Without Password from localhost
 ------------------------------------------
 
 Once configured, you can connect to PostgreSQL locally without a password.
 
+------------------------
 pgBackRest Stanza Create
 ------------------------
 
@@ -1105,6 +1106,7 @@ To create the stanza and resolve initial errors, run the following:
     INFO: stanza-create for stanza 'main' on repo1
     INFO: stanza-create command end: completed successfully
 
+------------------------------------
 PostgreSQL Configuration for Archive
 ------------------------------------
 
@@ -1128,6 +1130,7 @@ Then restart PostgreSQL:
     sudo systemctl restart postgresql.service
     sudo systemctl status postgresql.service
 
+-------------------
 Check Configuration
 -------------------
 
@@ -1145,6 +1148,7 @@ Validate configuration:
     INFO: WAL segment successfully archived ...
     INFO: check command end: completed successfully
 
+------------------
 Performing Backups
 ------------------
 
@@ -1185,6 +1189,7 @@ View Available Backups:
             full backup: ...
             incr backup: ...
 
+----------------------
 Restoring from Backups
 ----------------------
 
@@ -1204,6 +1209,7 @@ Restoring from Backups
 
     sudo -u postgres pgbackrest --stanza=main restore --delta --pg1-path=/home/postgres/main_recover
 
+-----------------------------
 Point-in-Time Recovery (PITR)
 -----------------------------
 
@@ -1237,12 +1243,13 @@ Use this timestamp to perform point-in-time recovery later by configuring `recov
 
 ---
 
-
+------------------------------------------
 Steps After Setup on Restoration Server
-========================================
+------------------------------------------
 
 Restoring a PostgreSQL server using pgBackRest involves stopping the PostgreSQL service, running the appropriate restore command, and verifying the state post-restore.
 
+--------------------------------------------
 Restore Using Point-In-Time Recovery (PITR)
 --------------------------------------------
 
@@ -1295,6 +1302,7 @@ Verify Tables and Recovery State:
     f
    (1 row)
 
+----------------------------------------------------
 Step-by-Step: Full + Incremental Backup Restoration
 ----------------------------------------------------
 
@@ -1323,6 +1331,7 @@ Step-by-Step: Full + Incremental Backup Restoration
    - Ensure PostgreSQL is running.
    - Validate data with simple queries.
 
+------------------
 Deleting a Stanza
 ------------------
 
@@ -1342,6 +1351,7 @@ Steps to delete a stanza:
 
    sudo systemctl start postgresql.service
 
+------------------------------
 Automating Backups with Cron
 ------------------------------
 
@@ -1365,6 +1375,7 @@ Add the following lines:
 
      0 */6 * * * /bin/bash /home/ubuntu/script/automation/PgBackres_Incr_Backup_OCS.sh
 
+----------------------------------------
 Backup Scripts with Slack Notification
 ----------------------------------------
 
@@ -1468,13 +1479,15 @@ Backup Scripts with Slack Notification
 
    exit 0
 
+----------------------
 Monitoring PgBackRest
-=====================
+----------------------
 
 This section explains how to monitor **pgBackRest** using a custom shell script that reports errors to a Slack channel, and how to configure cron for automated health checks and backup management.
 
+--------------------
 Monitoring Script
------------------
+--------------------
 
 The following script checks for `pgBackRest` permission errors and sends alerts to a Slack channel using a bot token.
 
@@ -1525,8 +1538,9 @@ Script content:
    # Run the check
    check_pgbackrest
 
+----------------------------------
 Automating Monitoring Using Cron
---------------------------------
+----------------------------------
 
 To automate the monitoring script to run every 5 minutes, use the following crontab entry:
 
@@ -1542,6 +1556,7 @@ Add the line:
 
 This ensures the `pgbackrest_monitor.sh` script runs every 5 minutes, checking for issues and alerting via Slack if needed.
 
+---------------------------------------------
 Multiple Repository Configuration for Backups
 ---------------------------------------------
 
@@ -1600,6 +1615,7 @@ pgBackRest supports configuration for multiple repositories, such as local, S3, 
    #compress-type=gz
    #compress-level=3
 
+-------
 Summary
 -------
 
