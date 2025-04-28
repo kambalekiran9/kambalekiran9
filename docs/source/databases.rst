@@ -137,102 +137,10 @@ DATABASES :
 * **Backup and Recovry:**
   
 
-   * PostgreSQL supports various types of backup.
+   * PostgreSQL supports various types of backup
 
     
      * :ref:`PostgreSQL-Backup:<pgbackup>`
-
-
- 
-======================================
-:ref:`Database Languages-SQL:<sql>`
-======================================
-
-* **Data definition language (DDL):-** Data definition language (DDL) creates the framework of the
-   database by specifying the database schema, which is the structure that represents the
-   organization of data. Its common uses include the creation and alteration of tables, files, indexes
-   and columns within the database.
-
-
- * Here a list of :ref:`DDL:<ddl>` statements:
-     
-   CREATE,ALTER,DROP,RENAME,TRUNCATE.
-
-
-* **Data manipulation language (DML):-** Data manipulation language (DML) provides operations that
-   handle user requests, offering a way to access and manipulate the data that users store within a
-   database. Its common functions include inserting, updating and retrieving data from the database.
-
-
- * Here's a list of :ref:`DML<dml>` statements:
-   
-   INSERT,UPDATE,DELETE,SELECT:
-
-
-* **Data control language (DCL):-** Data control language (DCL) controls access to the data that users
-   store within a database. Essentially, this language controls the rights and permissions of the database
-   system. It allows users to grant or revoke privileges to the database.
-
-
- * Here a list of :ref:`DCL:<dcl>` statements:
-
-  
-   GRANT,REVOKE
-
-
-* **Transaction control language (TCL):-** Transaction control language (TCL) manages the transactions
-   within a database.Transactions group a set of related tasks into a single, executable task. All the tasks
-   must succeed in order for the transaction to work.
-
-
- * Here a list of :ref:`TCL:<tcl>` statements:
-
-
-  COMMIT: Carries out a transaction
-  ROLLBACK: Restores a transaction if any tasks fail to execute
-  SAVEPOINT: Sets a point in a transaction to save
-
-
-
-* **SQL Sequence Basics: A Step-by-Step Guide:**
-
-     
-   * :ref:`Sequences<sequence>` :
-
-
-* **"Decoding SQL Clauses: Building Powerful Queries:**
-
- 
-   * :ref:`GROUP BY Clause for Aggregation<groupby>` Syntax:-
-
-
-   * :ref:`HAVING vs. WHERE: Clarifying the Distinction<having>` 
-
-
-   * :ref:`ORDER BY Clause: Sorting Query Results<orderby>` 
-
-
-   * :ref:`LIMIT and OFFSET: Controlling Result Sets<limit>` 
-
-
-   * :ref:`Constraints<constraints>`
-
-
-   * :ref:`Arrays<array>` in PostgreSQL
-
-
-   * Using SQL :ref:`Functions<function>`
-
-
-   * :ref:`Aggregates<aggregates>`
-
-
-
-
-
-
-
-
 
 
 
