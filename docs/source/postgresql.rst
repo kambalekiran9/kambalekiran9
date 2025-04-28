@@ -866,30 +866,25 @@ opaque                    An obsolete type name that formerly served all the abo
 
 
 
-========================
-Backup and Recovery :
-========================
+========================================
+Backup of Postgresql wtih PgBackrest :
+=======================================
 
 .. _pgbackup:
 
 * step to backup on postgresql database with pgbackrest tool 
 
---------------------
-1) Logical backup: 
---------------------
-
---------------------
-2) Physical backup: 
---------------------
-
 .. _official_docs: https://pgbackrest.org/user-guide.html#quickstart/perform-restore
 
 Documentation: `pgBackRest User Guide <https://pgbackrest.org/user-guide.html>`_
+
 
 Overview
 --------
 
 pgBackRest aims to be a reliable, easy-to-use backup and restore solution that can seamlessly scale up to the largest databases and workloads by utilizing algorithms optimized for database-specific requirements.
+
+
 
 Backup Types
 ------------
@@ -904,6 +899,7 @@ pgBackRest supports three types of backups:
 
 - **Incremental Backup**:
   Only files that have changed since the last *backup*, which can be full or differential.
+
 
 Advantages
 ----------
@@ -931,8 +927,9 @@ Summary & Conclusion
 
 pgBackRest is a powerful, reliable tool for PostgreSQL backups but requires advanced knowledge and resources to use effectively. It is best suited for enterprise-grade PostgreSQL deployments and advanced users.
 
+-------------
 Installation
-------------
+-------------
 
 **A) Installing pgBackRest on Ubuntu/Debian:**
 
@@ -972,6 +969,7 @@ Installation
    sudo chown -R postgres:postgres /var/lib/pgbackrest
    sudo chown -R postgres:postgres /var/log/pgbackrest
 
+-------------
 Configuration
 -------------
 
@@ -1081,6 +1079,7 @@ Test connection:
 
    # Then quit:
    \q
+
 pgBackRest Setup and Backup Documentation
 =========================================
 
