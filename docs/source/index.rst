@@ -59,7 +59,7 @@ Contents
    :maxdepth: 2
    :caption: Index
 
-   index
+   index2
 
 .. toctree::
    :maxdepth: 2
